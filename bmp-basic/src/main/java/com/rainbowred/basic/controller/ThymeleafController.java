@@ -47,7 +47,7 @@ public class ThymeleafController extends BaseController {
         QueryWrapper<SystemCompany> qw = new QueryWrapper<>();
         qw.eq("disable", 0)
                 .eq("del_flag", 0)
-                .orderBy(true, true, "create_date");
+                .orderBy(true, false, "create_date");
         List<SystemCompany> list = service.list(qw);
         model.addAttribute("companyList", list);
         return "view/basic/companyConfig/companyConfig";

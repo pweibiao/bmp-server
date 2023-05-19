@@ -76,7 +76,8 @@ public class ServerDataController extends BaseController {
         }
         // 公司列表
         QueryWrapper<SystemCompany> compQW = new QueryWrapper<>();
-        compQW.select("company_id", "name").eq("disable", 0).eq("del_flag", 0);
+        compQW.select("company_id", "name").eq("disable", 0).eq("del_flag", 0)
+                .orderBy(true, true, "create_date");
         List<SystemCompany> companyList = companyService.list(compQW);
         model.addAttribute("companyList", companyList);
         model.addAttribute("companyId", companyId);
