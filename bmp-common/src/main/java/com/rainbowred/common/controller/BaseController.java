@@ -203,15 +203,23 @@ public class BaseController {
      * 校验Signature
      */
     protected boolean validSignature(String token, String signature, String timestamp, String nonce) {
-        if (StringUtil.nonEmpty(token) &&
-                StringUtil.nonEmpty(token) &&
-                StringUtil.nonEmpty(token) &&
-                StringUtil.nonEmpty(token)) {
-            // 生成 Signature
-            String sha1 = SHA1.getSHA1(token, timestamp, nonce);
+        if (StringUtil.nonEmpty(signature)) {
+            String sha1 = getSignature(token, timestamp, nonce);
             return sha1.equals(signature);
         }
         return false;
+    }
+
+    /**
+     * 生成 Signature
+     */
+    protected String getSignature(String token, String timestamp, String nonce) {
+        if (StringUtil.nonEmpty(token) &&
+                StringUtil.nonEmpty(timestamp) &&
+                StringUtil.nonEmpty(nonce)) {
+            return SHA1.getSHA1(token, timestamp, nonce);
+        }
+        return new String();
     }
 
 }

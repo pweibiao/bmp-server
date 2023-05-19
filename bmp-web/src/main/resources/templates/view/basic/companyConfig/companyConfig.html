@@ -6,13 +6,32 @@
     <div style="display: flex;justify-content: center;align-items: center;">
         <h1>公司配置</h1>
     </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"> 数据： </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list'}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list'}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list'}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list'}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list'}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list'}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/trackRecord/list'}"> 浏览数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/ticketRecord/list'}"> 工单数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/crmData/list'}"> 客户数据 </a></h3>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"> 管理： </h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"> 工具： </h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/signature/sha1'}"> Signature工具 </a></h3>
+    </div>
 </head>
 
 <body>
-<h3>服务器交互与地址：https://apps.echatsoft.com/bmp/api/interaction</h3>
-<h1><a th:href="@{'/bmp/echatServer/data/apiLog/list'}">日志数据</a></h1>
 <h1><a th:href="@{'/bmp/basic/thy/companyConfig/list'}">点击刷新</a></h1>
 <h1><a th:href="@{'/bmp/basic/thy/companyConfig/add'}">添加公司配置</a></h1>
+<h3>服务器交互与地址：https://apps.echatsoft.com/bmp/api/interaction</h3>
 <table border="1">
     <colgroup >
         <col width="125">

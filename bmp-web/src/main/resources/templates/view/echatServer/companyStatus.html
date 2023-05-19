@@ -7,6 +7,7 @@
         <h1>公司状态</h1>
     </div>
     <div style="display: flex;">
+        <h3 style="margin-left:10px"> 数据： </a></h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
@@ -16,18 +17,26 @@
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${companyId}}"> 浏览数据 </a></h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${companyId}}"> 工单数据 </a></h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${companyId}}"> 客户数据 </a></h3>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"> 管理： </h3>
         <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"> 工具： </h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/signature/sha1'}"> Signature工具 </a></h3>
+    </div>
+    <div style="margin: 0px 0 30px 0;">
+        <h3 style="margin-left:10px" th:text="'当前公司id： '+${companyId} + ' - ' + ${companyName}"></h3>
+        <h3 style="margin-left:10px">公司列表：</h3>
+        <div th:each="company:${companyList}">
+            <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${company.companyId}}"></a>
+        </div>
     </div>
 </head>
 <body>
 <h1><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}">点击刷新</a></h1>
 
-<div style="margin: 0px 0 30px 0;">
-    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
-    <div th:each="company:${companyList}">
-        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${company.companyId}}"></a>
-    </div>
-</div>
 <table border="1">
     <colgroup>
         <col width="90">

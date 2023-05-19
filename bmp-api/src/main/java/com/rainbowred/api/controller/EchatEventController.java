@@ -42,7 +42,12 @@ public class EchatEventController extends BaseController {
         if (StringUtil.isEmpty(echostr)){
             try {
                 // 校验Signature有效
-                if (validSignature(companyCacheService.getCompanyToken(serverPojo.getCompanyId()), serverPojo.getSignature(), serverPojo.getTimestamp().toString(), serverPojo.getNonce())) {
+                if (validSignature(
+                        companyCacheService.getCompanyToken(serverPojo.getCompanyId()),
+                        serverPojo.getSignature(),
+                        serverPojo.getTimestamp().toString(),
+                        serverPojo.getNonce())
+                ) {
                     serverPojo.setXml(xml);
                     // 处理一洽服务器交互事件
                     eventService.saveEchatEvent(request, serverPojo);

@@ -8,6 +8,7 @@ import com.rainbowred.basic.service.SystemCompanyService;
 import com.rainbowred.common.controller.BaseController;
 import com.rainbowred.common.util.StringUtil;
 import com.rainbowred.pojo.CommonResult;
+import com.rainbowred.pojo.EncryptPojo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,17 +35,11 @@ public class ThymeleafController extends BaseController {
     private SystemCompanyCacheService cacheService;
 
     /**
-     * 根据id获取公司详情
-     * @param id
-     * @return
+     * ========== 公司配置 ==========
      */
-    @GetMapping("/{id}")
-    public CommonResult<SystemCompany> getList(@PathVariable(value = "id") String id) {
-        return success(service.getById(id));
-    }
 
     /**
-     * 获取公司配置列表
+     * 公司列表
      * @return
      */
     @GetMapping("/companyConfig/list")
@@ -55,11 +50,11 @@ public class ThymeleafController extends BaseController {
                 .orderBy(true, true, "create_date");
         List<SystemCompany> list = service.list(qw);
         model.addAttribute("companyList", list);
-        return "view/basic/companyConfig";
+        return "view/basic/companyConfig/companyConfig";
     }
 
     /**
-     * 添加公司配置页面
+     * 公司配置添加页
      */
     @GetMapping("/companyConfig/add")
     public String addThy(Model model) {
@@ -67,11 +62,11 @@ public class ThymeleafController extends BaseController {
         systemCompany.setCompanyId("请输入公司ID");
         systemCompany.setName("请输入公司名称");
         model.addAttribute("systemCompany", systemCompany);
-        return "view/basic/addCompanyConfig";
+        return "view/basic/companyConfig/addCompanyConfig";
     }
 
     /**
-     * 新增公司
+     * 添加公司配置
      * @return
      */
     @PostMapping("/companyConfig/add")
@@ -83,7 +78,7 @@ public class ThymeleafController extends BaseController {
     }
 
     /**
-     * 更新公司配置页面
+     * 公司配置更新页
      * @param pojo
      * @return
      */
@@ -91,7 +86,7 @@ public class ThymeleafController extends BaseController {
     public String updateHtml(@ModelAttribute SystemCompany pojo, Model model) {
         SystemCompany systemCompany = service.getById(pojo.getId());
         model.addAttribute("systemCompany", systemCompany);
-        return "view/basic/editCompanyConfig";
+        return "view/basic/companyConfig/editCompanyConfig";
     }
 
     /**
@@ -124,4 +119,36 @@ public class ThymeleafController extends BaseController {
         }
         return getListThy(model);
     }
+
+    /**
+     * ========== 加解密 ==========
+     */
+
+    /**
+     * Signature 加解密
+     */
+    @PostMapping("/signature/sha1")
+    public String SHA1Encoding(@ModelAttribute EncryptPojo pojo, Model model) {
+        if (StringUtil.isEmpty(pojo.getToken()) ||
+                StringUtil.isEmpty(pojo.getTm())||
+                StringUtil.isEmpty(pojo.getNonce())) {
+            pojo = new EncryptPojo();
+        }else {
+            // 生成Signature
+            String signature = getSignature(pojo.getToken(), pojo.getTm(), pojo.getNonce());
+            pojo.setMsgSignature("生成的Signature： "+signature);
+        }
+        model.addAttribute("encryptPojo", pojo);
+        return "view/basic/common/SHA1";
+    }
+
+    /**
+     * Signature 加解密
+     */
+    @GetMapping("/signature/sha1")
+    public String SHA1page(@ModelAttribute EncryptPojo pojo, Model model) {
+        model.addAttribute("encryptPojo", new EncryptPojo());
+        return "view/basic/common/SHA1";
+    }
+
 }

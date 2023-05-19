@@ -12,16 +12,9 @@ public class TestUtil {
     }
 
     public static void test1() {
-        String xml = "<xml>\n" +
-                "\t<msgId>326797113</msgId>\n" +
-                "\t<tm>1684312067985</tm>\n" +
-                "\t<staffStatus>1</staffStatus>\n" +
-                "\t<staffId>15271</staffId>\n" +
-                "\t<staffLogname><![CDATA[15112263532]]></staffLogname>\n" +
-                "\t<staffName><![CDATA[彭玮标]]></staffName>\n" +
-                "</xml>";
-        Object[] msgIds = XMLUtil.getXMLValue(xml, "msgId");
-        System.out.println(msgIds[1]);
+        String xml = new String();
+        String a = "sda";
+        System.out.println(xml.equals(a));
     }
 
 
