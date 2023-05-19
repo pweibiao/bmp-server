@@ -56,6 +56,15 @@ public class ServerDataController extends BaseController {
     @Autowired
     private BmpServerChatRecordService chatRecordService;
 
+    @Autowired
+    private BmpServerTrackRecordService trackRecordService;
+
+    @Autowired
+    private BmpServerTicketRecordService ticketRecordService;
+
+    @Autowired
+    private BmpServerCrmDataService crmDataService;
+
     @GetMapping("/{dataType}/list")
     public String getList(Model model,
                                       @PathVariable("dataType") String dataType,
@@ -155,6 +164,45 @@ public class ServerDataController extends BaseController {
                     });
                 }
                 model.addAttribute("chatRecords", chatRecords);
+                break;
+            case "trackRecord":
+                QueryWrapper<BmpServerTrackRecord> trackRecordQueryWrapper = new QueryWrapper<>();
+                trackRecordQueryWrapper.orderBy(true, false, "create_date")
+                        .eq("company_id", companyId);
+                List<BmpServerTrackRecord> trackRecords = trackRecordService.list(trackRecordQueryWrapper);
+                if (!CollectionUtils.isEmpty(trackRecords)) {
+                    trackRecords.stream().forEach(o -> {
+                        o.setCreateDateStr(format);
+                        o.setUpdateDateStr(format);
+                    });
+                }
+                model.addAttribute("trackRecords", trackRecords);
+                break;
+            case "ticketRecord":
+                QueryWrapper<BmpServerTicketRecord> ticketRecordQueryWrapper = new QueryWrapper<>();
+                ticketRecordQueryWrapper.orderBy(true, false, "create_date")
+                        .eq("company_id", companyId);
+                List<BmpServerTicketRecord> ticketRecords = ticketRecordService.list(ticketRecordQueryWrapper);
+                if (!CollectionUtils.isEmpty(ticketRecords)) {
+                    ticketRecords.stream().forEach(o -> {
+                        o.setCreateDateStr(format);
+                        o.setUpdateDateStr(format);
+                    });
+                }
+                model.addAttribute("ticketRecords", ticketRecords);
+                break;
+            case "crmData":
+                QueryWrapper<BmpServerCrmData> crmDataQueryWrapper = new QueryWrapper<>();
+                crmDataQueryWrapper.orderBy(true, false, "create_date")
+                        .eq("company_id", companyId);
+                List<BmpServerCrmData> crmDatas = crmDataService.list(crmDataQueryWrapper);
+                if (!CollectionUtils.isEmpty(crmDatas)) {
+                    crmDatas.stream().forEach(o -> {
+                        o.setCreateDateStr(format);
+                        o.setUpdateDateStr(format);
+                    });
+                }
+                model.addAttribute("crmDatas", crmDatas);
                 break;
             default:
                 model.addAttribute("apiLogs", Lists.newArrayList());
