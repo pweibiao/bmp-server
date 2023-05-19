@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日志数据</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>apiLog</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}">点击刷新</a></h1>
+<h1><a th:href="@{'/bmp/echatServer/data/apiLog/del?companyId='+${companyId}}">清空</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+
+<table border="1">
+    <colgroup >
+        <col width="125">
+        <col width="70">
+        <col width="125">
+        <col width="150">
+        <col width="150">
+        <col width="125">
+        <col width="90">
+        <col width="600">
+        <col width="700">
+        <col width="125">
+        <col width="125">
+        <col width="700">
+    </colgroup>
+    <thead align="center">
+        <tr>
+            <td>消息ID</td>
+            <td>公司ID</td>
+            <td>请求时间戳</td>
+            <td>请求时间</td>
+            <td>事件类型</td>
+            <td>请求路径</td>
+            <td>请求方法</td>
+            <td>密文</td>
+            <td>明文</td>
+            <td>服务器接收POST数据时间</td>
+            <td>时间差</td>
+            <td>请求参数</td>
+        </tr>
+    </thead>
+    <tbody style="width:100%; white-space:normal; word-wrap:break-word; word-break:break-all; white-space: pre-wrap;font-size:10px;">
+        <tr th:id="test-get" th:each="log : ${apiLogs}">
+            <td th:text="${log.msgId}"></td>
+            <td th:text="${log.companyId}"></td>
+            <td th:text="${log.timestamp}"></td>
+            <td th:text="${log.createDateStr}"></td>
+            <td th:text="${log.dataType}"></td>
+            <td th:text="${log.url}"></td>
+            <td th:text="${log.method}"></td>
+            <td th:text="${log.ciphertext}"></td>
+            <td th:text="${log.plaintext}"></td>
+            <td th:text="${log.postTime}"></td>
+            <td th:text="${log.timeEd}"></td>
+            <td th:text="${log.debug}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+<script th:inline="javascript">
+    function choiceCompanyId(){
+        var choiceCompanyId = $("#choiceCompany").find("option:selected").val();
+        window.alert(choiceCompanyId);
+        console.log(choiceCompanyId);
+    }
+</script>
+</html>

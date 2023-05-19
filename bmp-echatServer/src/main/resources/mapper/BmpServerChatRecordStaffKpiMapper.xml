@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerChatRecordStaffKpiMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerChatRecordStaffKpi">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="staffId" column="staff_id" jdbcType="VARCHAR"/>
+            <result property="staffLogname" column="staff_logname" jdbcType="VARCHAR"/>
+            <result property="staffName" column="staff_name" jdbcType="VARCHAR"/>
+            <result property="firstAnswerTime" column="first_answer_time" jdbcType="INTEGER"/>
+            <result property="avgAnswerTime" column="avg_answer_time" jdbcType="INTEGER"/>
+            <result property="visitorSendMsg" column="visitor_send_msg" jdbcType="INTEGER"/>
+            <result property="staffSendMsg" column="staff_send_msg" jdbcType="INTEGER"/>
+            <result property="duration" column="duration" jdbcType="INTEGER"/>
+            <result property="chatRecordId" column="chat_record_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_date,create_by,
+        update_date,update_by,disable,
+        del_flag,company_id,staff_id,
+        staff_logname,staff_name,first_answer_time,
+        avg_answer_time,visitor_send_msg,staff_send_msg,
+        duration,chat_record_id
+    </sql>
+</mapper>

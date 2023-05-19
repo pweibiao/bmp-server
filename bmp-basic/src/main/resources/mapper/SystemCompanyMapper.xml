@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.basic.mapper.SystemCompanyMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.basic.domain.SystemCompany">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="appid" column="appid" jdbcType="VARCHAR"/>
+            <result property="aeskey" column="aeskey" jdbcType="VARCHAR"/>
+            <result property="token" column="token" jdbcType="VARCHAR"/>
+            <result property="serverUrl" column="server_url" jdbcType="VARCHAR"/>
+            <result property="visitorUrl" column="visitor_url" jdbcType="VARCHAR"/>
+            <result property="apiUrl" column="api_url" jdbcType="VARCHAR"/>
+            <result property="logData" column="log_data" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`name`,
+        `appid`,`aeskey`,`token`,
+        `server_url`,`visitor_url`,`api_url`,
+        `log_data`
+    </sql>
+
+    <insert id="addCompany" parameterType="systemCompany">
+        INSERT INTO
+            `bmp_basic_system_company` (`id`, `create_date`, `name`, `company_id`)
+        VALUES
+            (#{e.id,jdbcType=VARCHAR}, #{e.createDate,jdbcType=TIMESTAMP}, #{e.name,jdbcType=VARCHAR}, #{e.companyId,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateCompany" parameterType="systemCompany">
+
+    </update>
+
+</mapper>

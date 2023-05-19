@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bmp</artifactId>
+        <groupId>com.rainbowred</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>bmp-web</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- 通用模块 -->
+        <dependency>
+            <groupId>com.rainbowred</groupId>
+            <artifactId>bmp-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- 交互接口模块 -->
+        <dependency>
+            <groupId>com.rainbowred</groupId>
+            <artifactId>bmp-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- 业务基础模块 -->
+        <dependency>
+            <groupId>com.rainbowred</groupId>
+            <artifactId>bmp-basic</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- 一洽业务模块 -->
+        <dependency>
+            <groupId>com.rainbowred</groupId>
+            <artifactId>bmp-echatServer</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <finalName>bmp</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.rainbowred.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

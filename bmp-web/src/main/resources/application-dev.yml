@@ -1,0 +1,82 @@
+server:
+  # 本地开发环境
+  port: 3515
+spring:
+  main:
+    allow-bean-definition-overriding: true #同名bean，允许覆盖
+    allow-circular-references: true
+  application:
+    name: bmp
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    username: kathmikkel@163.com
+    password: LDCPHGXFVNHGLSID
+    port: 25
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          starttls:
+            enable: true
+  datasource:
+    dynamic:
+      p6spy: true
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 5
+        connection-test-query: select 1
+        pool-name: EchatSoftServerCP
+      primary: base
+      datasource:
+        base:
+          username: root
+          password: 123456
+          url: jdbc:mysql://localhost:3306/server_echat_data?characterEncoding=utf-8&useSSL=false&userUnicode=true&allowMutiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&allowMultiQueries=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size : 100MB
+      max-request-size : 100MB
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
+
+mybatis-plus:
+  type-aliases-package: com.rainbowred.**.domain,;com.rainbowred.**.domain.*
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null # set 为空操作
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  #    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl #关闭sql日志
+  global-config:
+    banner: false
+
+
+permittedIps: 127.0.0.1,localhost
+
+jwt:
+  secret: echatsoft
+  header: Authorization
+  token-head: Bearer
+  base64-secret: meng
+  # 24 小时 （ 24 * 3600 ）
+  token-validity-in-seconds: 864000

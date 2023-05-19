@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.common.mapper.SystemFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.common.domain.SystemFile">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="fileExt" column="file_ext" jdbcType="VARCHAR"/>
+            <result property="bizId" column="biz_id" jdbcType="VARCHAR"/>
+            <result property="bizName" column="biz_name" jdbcType="VARCHAR"/>
+            <result property="fileSize" column="file_size" jdbcType="BIGINT"/>
+            <result property="realPath" column="real_path" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`file_name`,`file_ext`,
+        `biz_id`,`file_size`,`real_path`,`biz_name`
+    </sql>
+
+    <insert id="insertBatch" parameterType="SystemFile">
+        <foreach collection="list" index="index" item="item" separator=";">
+            INSERT INTO `system_file` (`id`,`create_date`,`create_by`,`file_name`,`file_ext`,`biz_id`,
+            <if test="item.bizName != null and item.bizName != '' ">
+                `biz_name`,
+            </if>
+                `file_size`,`real_path`)
+            <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+                #{item.id,jdbcType=VARCHAR},
+                #{item.createDate,jdbcType=TIMESTAMP},
+                <if test="item.createBy != null and item.createBy != '' " >
+                    #{item.createBy,jdbcType=VARCHAR},
+                </if>
+                <if test="item.fileName != null and item.fileName != '' " >
+                    #{item.fileName,jdbcType=VARCHAR},
+                </if>
+                <if test="item.fileExt != null and item.fileExt != '' " >
+                    #{item.fileExt,jdbcType=VARCHAR},
+                </if>
+                <if test="item.bizId != null and item.bizId != '' " >
+                    #{item.bizId,jdbcType=VARCHAR},
+                </if>
+                <if test="item.bizName != null and item.bizName != '' " >
+                    #{item.bizName,jdbcType=VARCHAR},
+                </if>
+                <if test="item.fileSize != null " >
+                    #{item.fileSize,jdbcType=BIGINT},
+                </if>
+                <if test="item.realPath != null and item.realPath != '' " >
+                    #{item.realPath,jdbcType=VARCHAR},
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <update id="disableFile" parameterType="String">
+        UPDATE `system_file` e
+        SET e.`disable` = 1 ,
+            e.`del_flag` = 1 ,
+            e.`biz_id` = null
+        WHERE
+            e.`id` in (
+        <foreach collection="ids" index="index" item="id" separator=",">
+                #{id,jdbcType=VARCHAR}
+        </foreach>
+        )
+    </update>
+
+</mapper>

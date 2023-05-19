@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerChatRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerChatRecord">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="chatRecordType" column="chat_record_type" jdbcType="INTEGER"/>
+            <result property="myData" column="my_data" jdbcType="VARCHAR"/>
+            <result property="chatStatus" column="chat_status" jdbcType="INTEGER"/>
+            <result property="isTransfer" column="is_transfer" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="grade" column="grade" jdbcType="INTEGER"/>
+            <result property="category" column="category" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="INTEGER"/>
+            <result property="age" column="age" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="maritalStatus" column="marital_status" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="qq" column="qq" jdbcType="VARCHAR"/>
+            <result property="wechat" column="wechat" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="nation" column="nation" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="photo" column="photo" jdbcType="VARCHAR"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="c1" column="c1" jdbcType="VARCHAR"/>
+            <result property="c2" column="c2" jdbcType="VARCHAR"/>
+            <result property="c3" column="c3" jdbcType="VARCHAR"/>
+            <result property="c4" column="c4" jdbcType="VARCHAR"/>
+            <result property="c5" column="c5" jdbcType="VARCHAR"/>
+            <result property="c6" column="c6" jdbcType="VARCHAR"/>
+            <result property="c7" column="c7" jdbcType="VARCHAR"/>
+            <result property="c8" column="c8" jdbcType="VARCHAR"/>
+            <result property="c9" column="c9" jdbcType="VARCHAR"/>
+            <result property="c10" column="c10" jdbcType="VARCHAR"/>
+            <result property="c11" column="c11" jdbcType="VARCHAR"/>
+            <result property="c12" column="c12" jdbcType="VARCHAR"/>
+            <result property="c13" column="c13" jdbcType="VARCHAR"/>
+            <result property="c14" column="c14" jdbcType="VARCHAR"/>
+            <result property="c15" column="c15" jdbcType="VARCHAR"/>
+            <result property="c16" column="c16" jdbcType="VARCHAR"/>
+            <result property="c17" column="c17" jdbcType="VARCHAR"/>
+            <result property="c18" column="c18" jdbcType="VARCHAR"/>
+            <result property="c19" column="c19" jdbcType="VARCHAR"/>
+            <result property="c20" column="c20" jdbcType="VARCHAR"/>
+            <result property="visitorEnterTime" column="visitor_enter_time" jdbcType="TIMESTAMP"/>
+            <result property="visitorMedia" column="visitor_media" jdbcType="INTEGER"/>
+            <result property="visitorType" column="visitor_type" jdbcType="INTEGER"/>
+            <result property="mediaId" column="media_id" jdbcType="VARCHAR"/>
+            <result property="visitorId" column="visitor_id" jdbcType="VARCHAR"/>
+            <result property="visitorName" column="visitor_name" jdbcType="VARCHAR"/>
+            <result property="visitorPhoto" column="visitor_photo" jdbcType="VARCHAR"/>
+            <result property="visitTimes" column="visit_times" jdbcType="INTEGER"/>
+            <result property="visitorLan" column="visitor_lan" jdbcType="VARCHAR"/>
+            <result property="visitorIp" column="visitor_ip" jdbcType="VARCHAR"/>
+            <result property="visitorCountry" column="visitor_country" jdbcType="VARCHAR"/>
+            <result property="visitorProvince" column="visitor_province" jdbcType="VARCHAR"/>
+            <result property="visitorCity" column="visitor_city" jdbcType="VARCHAR"/>
+            <result property="browserName" column="browser_name" jdbcType="VARCHAR"/>
+            <result property="browserVersion" column="browser_version" jdbcType="VARCHAR"/>
+            <result property="screenResolution" column="screen_resolution" jdbcType="VARCHAR"/>
+            <result property="osName" column="os_name" jdbcType="VARCHAR"/>
+            <result property="osVersion" column="os_version" jdbcType="VARCHAR"/>
+            <result property="se" column="se" jdbcType="VARCHAR"/>
+            <result property="keyword" column="keyword" jdbcType="VARCHAR"/>
+            <result property="biddingWord" column="bidding_word" jdbcType="VARCHAR"/>
+            <result property="keywordType" column="keyword_type" jdbcType="INTEGER"/>
+            <result property="referPage" column="refer_page" jdbcType="VARCHAR"/>
+            <result property="firstTime" column="first_time" jdbcType="TIMESTAMP"/>
+            <result property="firstPage" column="first_page" jdbcType="VARCHAR"/>
+            <result property="firstPageTitle" column="first_page_title" jdbcType="VARCHAR"/>
+            <result property="firstPageAlias" column="first_page_alias" jdbcType="VARCHAR"/>
+            <result property="lastChatTime" column="last_chat_time" jdbcType="TIMESTAMP"/>
+            <result property="lastChatStaffId" column="last_chat_staff_id" jdbcType="BIGINT"/>
+            <result property="lastChatStaffLogname" column="last_chat_staff_logname" jdbcType="VARCHAR"/>
+            <result property="lastChatStaffName" column="last_chat_staff_name" jdbcType="VARCHAR"/>
+            <result property="routeId" column="route_id" jdbcType="BIGINT"/>
+            <result property="routeName" column="route_name" jdbcType="VARCHAR"/>
+            <result property="styleId" column="style_id" jdbcType="BIGINT"/>
+            <result property="styleName" column="style_name" jdbcType="VARCHAR"/>
+            <result property="routeChatDepartmentId" column="route_chat_department_id" jdbcType="BIGINT"/>
+            <result property="routeChatDepartmentName" column="route_chat_department_name" jdbcType="VARCHAR"/>
+            <result property="chatPage" column="chat_page" jdbcType="VARCHAR"/>
+            <result property="chatPageTitle" column="chat_page_title" jdbcType="VARCHAR"/>
+            <result property="chatTimes" column="chat_times" jdbcType="INTEGER"/>
+            <result property="chatEvent" column="chat_event" jdbcType="INTEGER"/>
+            <result property="chatRequestTime" column="chat_request_time" jdbcType="TIMESTAMP"/>
+            <result property="chatAnswerTime" column="chat_answer_time" jdbcType="TIMESTAMP"/>
+            <result property="chatType" column="chat_type" jdbcType="INTEGER"/>
+            <result property="chatStaffId" column="chat_staff_id" jdbcType="BIGINT"/>
+            <result property="chatStaffLogname" column="chat_staff_logname" jdbcType="VARCHAR"/>
+            <result property="chatStaffName" column="chat_staff_name" jdbcType="VARCHAR"/>
+            <result property="chatStaffRole" column="chat_staff_role" jdbcType="VARCHAR"/>
+            <result property="chatEntrance" column="chat_entrance" jdbcType="VARCHAR"/>
+            <result property="chatRecordId" column="chat_record_id" jdbcType="VARCHAR"/>
+            <result property="chatWaitTime" column="chat_wait_time" jdbcType="BIGINT"/>
+            <result property="chatDepartmentId" column="chat_department_id" jdbcType="BIGINT"/>
+            <result property="chatDepartmentName" column="chat_department_name" jdbcType="VARCHAR"/>
+            <result property="chatScore" column="chat_score" jdbcType="INTEGER"/>
+            <result property="scoreDimension" column="score_dimension" jdbcType="VARCHAR"/>
+            <result property="scoreSuggest" column="score_suggest" jdbcType="VARCHAR"/>
+            <result property="scoreChatStaffId" column="score_chat_staff_id" jdbcType="VARCHAR"/>
+            <result property="scoreChatStaffLogname" column="score_chat_staff_logname" jdbcType="VARCHAR"/>
+            <result property="scoreChatStaffName" column="score_chat_staff_name" jdbcType="VARCHAR"/>
+            <result property="chatSubject" column="chat_subject" jdbcType="VARCHAR"/>
+            <result property="chatSubjectMemo" column="chat_subject_memo" jdbcType="VARCHAR"/>
+            <result property="chatEndTime" column="chat_end_time" jdbcType="TIMESTAMP"/>
+            <result property="chatEndType" column="chat_end_type" jdbcType="INTEGER"/>
+            <result property="chatTotalTime" column="chat_total_time" jdbcType="BIGINT"/>
+            <result property="firstAnswerTime" column="first_answer_time" jdbcType="BIGINT"/>
+            <result property="avgAnswerTime" column="avg_answer_time" jdbcType="BIGINT"/>
+            <result property="visitorSendMsg" column="visitor_send_msg" jdbcType="INTEGER"/>
+            <result property="staffSendMsg" column="staff_send_msg" jdbcType="INTEGER"/>
+            <result property="activelyinviteEvaluating" column="activelyInvite_evaluating" jdbcType="INTEGER"/>
+            <result property="chatContent" column="chat_content" jdbcType="VARCHAR"/>
+            <result property="staffId" column="staff_id" jdbcType="BIGINT"/>
+            <result property="staffLogname" column="staff_logname" jdbcType="VARCHAR"/>
+            <result property="staffName" column="staff_name" jdbcType="VARCHAR"/>
+            <result property="ownerId" column="owner_id" jdbcType="BIGINT"/>
+            <result property="ownerLogname" column="owner_logname" jdbcType="VARCHAR"/>
+            <result property="ownerName" column="owner_name" jdbcType="VARCHAR"/>
+            <result property="perfectMatchs" column="perfect_matchs" jdbcType="INTEGER"/>
+            <result property="exactMatchs" column="exact_matchs" jdbcType="INTEGER"/>
+            <result property="similarityMatchs" column="similarity_matchs" jdbcType="INTEGER"/>
+            <result property="misMatchCount" column="mis_match_count" jdbcType="INTEGER"/>
+            <result property="solvedCount" column="solved_count" jdbcType="INTEGER"/>
+            <result property="unsolvedCount" column="unsolved_count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`chat_record_type`,
+        `my_data`,`chat_status`,`is_transfer`,
+        `uid`,`grade`,`category`,
+        `name`,`nick_name`,`gender`,
+        `age`,`birthday`,`marital_status`,
+        `phone`,`qq`,`wechat`,
+        `email`,`nation`,`province`,
+        `city`,`address`,`photo`,
+        `memo`,`c1`,`c2`,
+        `c3`,`c4`,`c5`,
+        `c6`,`c7`,`c8`,
+        `c9`,`c10`,`c11`,
+        `c12`,`c13`,`c14`,
+        `c15`,`c16`,`c17`,
+        `c18`,`c19`,`c20`,
+        `visitor_enter_time`,`visitor_media`,`visitor_type`,
+        `media_id`,`visitor_id`,`visitor_name`,
+        `visitor_photo`,`visit_times`,`visitor_lan`,
+        `visitor_ip`,`visitor_country`,`visitor_province`,
+        `visitor_city`,`browser_name`,`browser_version`,
+        `screen_resolution`,`os_name`,`os_version`,
+        `se`,`keyword`,`bidding_word`,
+        `keyword_type`,`refer_page`,`first_time`,
+        `first_page`,`first_page_title`,`first_page_alias`,
+        `last_chat_time`,`last_chat_staff_id`,`last_chat_staff_logname`,
+        `last_chat_staff_name`,`route_id`,`route_name`,
+        `style_id`,`style_name`,`route_chat_department_id`,
+        `route_chat_department_name`,`chat_page`,`chat_page_title`,
+        `chat_times`,`chat_event`,`chat_request_time`,
+        `chat_answer_time`,`chat_type`,`chat_staff_id`,
+        `chat_staff_logname`,`chat_staff_name`,`chat_staff_role`,
+        `chat_entrance`,`chat_record_id`,`chat_wait_time`,
+        `chat_department_id`,`chat_department_name`,`chat_score`,
+        `score_dimension`,`score_suggest`,`score_chat_staff_id`,
+        `score_chat_staff_logname`,`score_chat_staff_name`,`chat_subject`,
+        `chat_subject_memo`,`chat_end_time`,`chat_end_type`,
+        `chat_total_time`,`first_answer_time`,`avg_answer_time`,
+        `visitor_send_msg`,`staff_send_msg`,`activelyInvite_evaluating`,
+        `chat_content`,`staff_id`,`staff_logname`,
+        `staff_name`,`owner_id`,`owner_logname`,
+        `owner_name`,`perfect_matchs`,`exact_matchs`,
+        `similarity_matchs`,`mis_match_count`,`solved_count`,
+        `unsolved_count`
+    </sql>
+
+
+    <insert id="insertOrUpdate" parameterType="bmpServerChatRecord">
+        INSERT INTO `bmp_server_chat_record`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="e.id != null and e.id != '' ">
+                `id`,
+            </if>
+            <if test="e.createDate != null">
+                `create_date`,
+            </if>
+            <if test="e.createBy != null and e.createBy != '' ">
+                `create_by`,
+            </if>
+            <if test="e.companyId != null and e.companyId != '' ">
+                `company_id`,
+            </if>
+            <if test="e.chatRecordType != null ">
+                `chat_record_type`,
+            </if>
+            <if test="e.myData != null and e.myData != '' ">
+                `my_data`,
+            </if>
+            <if test="e.chatStatus != null">
+                `chat_status`,
+            </if>
+            <if test="e.isTransfer != null ">
+                `is_transfer`,
+            </if>
+            <if test="e.uid != null and e.uid != '' ">
+                `uid`,
+            </if>
+            <if test="e.grade != null ">
+                `grade`,
+            </if>
+            <if test="e.category != null and e.category != '' ">
+                `category`,
+            </if>
+            <if test="e.name != null and e.name != '' ">
+                `name`,
+            </if>
+            <if test="e.nickName != null and e.nickName != '' ">
+                `nick_name`,
+            </if>
+            <if test="e.gender != null">
+                `gender`,
+            </if>
+            <if test="e.age != null and e.age != '' ">
+                `age`,
+            </if>
+            <if test="e.birthday != null and e.birthday != '' ">
+                `birthday`,
+            </if>
+            <if test="e.maritalStatus != null ">
+                `marital_status`,
+            </if>
+            <if test="e.phone != null and e.phone != '' ">
+                `phone`,
+            </if>
+            <if test="e.qq != null and e.qq != '' ">
+                `qq`,
+            </if>
+            <if test="e.wechat != null and e.wechat != '' ">
+                `wechat`,
+            </if>
+            <if test="e.email != null and e.email != '' ">
+                `email`,
+            </if>
+            <if test="e.nation != null and e.nation != '' ">
+                `nation`,
+            </if>
+            <if test="e.province != null and e.province != '' ">
+                `province`,
+            </if>
+            <if test="e.city != null and e.city != '' ">
+                `city`,
+            </if>
+            <if test="e.address != null and e.address != '' ">
+                `address`,
+            </if>
+            <if test="e.photo != null and e.photo != '' ">
+                `photo`,
+            </if>
+            <if test="e.memo != null and e.memo != '' ">
+                `memo`,
+            </if>
+            <if test="e.c1 != null and e.c1 != ''">
+                `c1`,
+            </if>
+            <if test="e.c2 != null and e.c2 != ''">
+                `c2`,
+            </if>
+            <if test="e.c3 != null and e.c3 != ''">
+                `c3`,
+            </if>
+            <if test="e.c4 != null and e.c4 != ''">
+                `c4`,
+            </if>
+            <if test="e.c5 != null and e.c5 != ''">
+                `c5`,
+            </if>
+            <if test="e.c6 != null and e.c6 != ''">
+                `c6`,
+            </if>
+            <if test="e.c7 != null and e.c7 != ''">
+                `c7`,
+            </if>
+            <if test="e.c8 != null and e.c8 != ''">
+                `c8`,
+            </if>
+            <if test="e.c9 != null and e.c9 != ''">
+                `c9`,
+            </if>
+            <if test="e.c10 != null and e.c10 != ''">
+                `c10`,
+            </if>
+            <if test="e.c11 != null and e.c11 != ''">
+                `c11`,
+            </if>
+            <if test="e.c12 != null and e.c12 != ''">
+                `c12`,
+            </if>
+            <if test="e.c13 != null and e.c13 != ''">
+                `c13`,
+            </if>
+            <if test="e.c14 != null and e.c14 != ''">
+                `c14`,
+            </if>
+            <if test="e.c15 != null and e.c15 != ''">
+                `c15`,
+            </if>
+            <if test="e.c16 != null and e.c16 != ''">
+                `c16`,
+            </if>
+            <if test="e.c17 != null and e.c17 != ''">
+                `c17`,
+            </if>
+            <if test="e.c18 != null and e.c18 != ''">
+                `c18`,
+            </if>
+            <if test="e.c19 != null and e.c19 != ''">
+                `c19`,
+            </if>
+            <if test="e.c20 != null and e.c20 != ''">
+                `c20`,
+            </if>
+            <if test="e.visitorEnterTime != null ">
+                `visitor_enter_time`,
+            </if>
+            <if test="e.visitorMedia != null ">
+                `visitor_media`,
+            </if>
+            <if test="e.visitorType != null ">
+                `visitor_type`,
+            </if>
+            <if test="e.mediaId != null and e.mediaId != '' ">
+                `media_id`,
+            </if>
+            <if test="e.visitorId != null and e.visitorId != '' ">
+                `visitor_id`,
+            </if>
+            <if test="e.visitorName != null and e.visitorName != '' ">
+                `visitor_name`,
+            </if>
+            <if test="e.visitorPhoto != null and e.visitorPhoto != '' ">
+                `visitor_photo`,
+            </if>
+            <if test="e.visitTimes != null ">
+                `visit_times`,
+            </if>
+            <if test="e.visitorLan != null and e.visitorLan != '' ">
+                `visitor_lan`,
+            </if>
+            <if test="e.visitorIp != null and e.visitorIp != '' ">
+                `visitor_ip`,
+            </if>
+            <if test="e.visitorCountry != null and e.visitorCountry != '' ">
+                `visitor_country`,
+            </if>
+            <if test="e.visitorProvince != null and e.visitorProvince != '' ">
+                `visitor_province`,
+            </if>
+            <if test="e.visitorCity != null and e.visitorCity != '' ">
+                `visitor_city`,
+            </if>
+            <if test="e.browserName != null and e.browserName != '' ">
+                `browser_name`,
+            </if>
+            <if test="e.browserVersion != null and e.browserVersion != '' ">
+                `browser_version`,
+            </if>
+            <if test="e.screenResolution != null and e.screenResolution != '' ">
+                `screen_resolution`,
+            </if>
+            <if test="e.osName != null and e.osName != '' ">
+                `os_name`,
+            </if>
+            <if test="e.osVersion != null and e.osVersion != '' ">
+                `os_version`,
+            </if>
+            <if test="e.se != null and e.se != '' ">
+                `se`,
+            </if>
+            <if test="e.keyword != null and e.keyword != '' ">
+                `keyword`,
+            </if>
+            <if test="e.biddingWord != null and e.biddingWord != '' ">
+                `bidding_word`,
+            </if>
+            <if test="e.keywordType != null ">
+                `keyword_type`,
+            </if>
+            <if test="e.referPage != null and e.referPage != '' ">
+                `refer_page`,
+            </if>
+            <if test="e.firstTime != null ">
+                `first_time`,
+            </if>
+            <if test="e.firstPage != null and e.firstPage != '' ">
+                `first_page`,
+            </if>
+            <if test="e.firstPageTitle != null and e.firstPageTitle != '' ">
+                `first_page_title`,
+            </if>
+            <if test="e.firstPageAlias != null and e.firstPageAlias != '' ">
+                `first_page_alias`,
+            </if>
+            <if test="e.lastChatTime != null ">
+                `last_chat_time`,
+            </if>
+            <if test="e.lastChatStaffId != null ">
+                `last_chat_staff_id`,
+            </if>
+            <if test="e.lastChatStaffLogname != null and e.lastChatStaffLogname != '' ">
+                `last_chat_staff_logname`,
+            </if>
+            <if test="e.lastChatStaffName != null and e.lastChatStaffName != '' ">
+                `last_chat_staff_name`,
+            </if>
+            <if test="e.routeId != null ">
+                `route_id`,
+            </if>
+            <if test="e.routeName != null and e.routeName != '' ">
+                `route_name`,
+            </if>
+            <if test="e.styleId != null ">
+                `style_id`,
+            </if>
+            <if test="e.styleName != null and e.styleName != '' ">
+                `style_name`,
+            </if>
+            <if test="e.routeChatDepartmentId != null ">
+                `route_chat_department_id`,
+            </if>
+            <if test="e.routeChatDepartmentName != null and e.routeChatDepartmentName != '' ">
+                `route_chat_department_name`,
+            </if>
+            <if test="e.chatPage != null and e.chatPage != '' ">
+                `chat_page`,
+            </if>
+            <if test="e.chatPageTitle != null and e.chatPageTitle != '' ">
+                `chat_page_title`,
+            </if>
+            <if test="e.chatTimes != null ">
+                `chat_times`,
+            </if>
+            <if test="e.chatEvent != null ">
+                `chat_event`,
+            </if>
+            <if test="e.chatRequestTime != null ">
+                `chat_request_time`,
+            </if>
+            <if test="e.chatAnswerTime != null ">
+                `chat_answer_time`,
+            </if>
+            <if test="e.chatType != null ">
+                `chat_type`,
+            </if>
+            <if test="e.chatStaffId != null ">
+                `chat_staff_id`,
+            </if>
+            <if test="e.chatStaffLogname != null and e.chatStaffLogname != '' ">
+                `chat_staff_logname`,
+            </if>
+            <if test="e.chatStaffName != null and e.chatStaffName != '' ">
+                `chat_staff_name`,
+            </if>
+            <if test="e.chatStaffRole != null and e.chatStaffRole != '' ">
+                `chat_staff_role`,
+            </if>
+            <if test="e.chatEntrance != null and e.chatEntrance != '' ">
+                `chat_entrance`,
+            </if>
+            <if test="e.chatRecordId != null and e.chatRecordId != '' ">
+                `chat_record_id`,
+            </if>
+            <if test="e.chatWaitTime != null ">
+                `chat_wait_time`,
+            </if>
+            <if test="e.chatDepartmentId != null ">
+                `chat_department_id`,
+            </if>
+            <if test="e.chatDepartmentName != null and e.chatDepartmentName != '' ">
+                `chat_department_name`,
+            </if>
+            <if test="e.chatScore != null ">
+                `chat_score`,
+            </if>
+            <if test="e.scoreDimension != null and e.scoreDimension != '' ">
+                `score_dimension`,
+            </if>
+            <if test="e.scoreSuggest != null and e.scoreSuggest != '' ">
+                `score_suggest`,
+            </if>
+            <if test="e.scoreChatStaffId != null and e.scoreChatStaffId != '' ">
+                `score_chat_staff_id`,
+            </if>
+            <if test="e.scoreChatStaffLogname != null and e.scoreChatStaffLogname != '' ">
+                `score_chat_staff_logname`,
+            </if>
+            <if test="e.scoreChatStaffName != null and e.scoreChatStaffName != '' ">
+                `score_chat_staff_name`,
+            </if>
+            <if test="e.chatSubject != null and e.chatSubject != '' ">
+                `chat_subject`,
+            </if>
+            <if test="e.chatSubjectMemo != null and e.chatSubjectMemo != '' ">
+                `chat_subject_memo`,
+            </if>
+            <if test="e.chatEndTime != null ">
+                `chat_end_time`,
+            </if>
+            <if test="e.chatEndType != null ">
+                `chat_end_type`,
+            </if>
+            <if test="e.chatTotalTime != null ">
+                `chat_total_time`,
+            </if>
+            <if test="e.firstAnswerTime != null ">
+                `first_answer_time`,
+            </if>
+            <if test="e.avgAnswerTime != null ">
+                `avg_answer_time`,
+            </if>
+            <if test="e.visitorSendMsg != null ">
+                `visitor_send_msg`,
+            </if>
+            <if test="e.staffSendMsg != null ">
+                `staff_send_msg`,
+            </if>
+            <if test="e.activelyinviteEvaluating != null ">
+                `activelyInvite_evaluating`,
+            </if>
+            <if test="e.chatContent != null and e.chatContent != '' ">
+                `chat_content`,
+            </if>
+            <if test="e.staffId != null ">
+                `staff_id`,
+            </if>
+            <if test="e.staffLogname != null and e.staffLogname != '' ">
+                `staff_logname`,
+            </if>
+            <if test="e.staffName != null and e.staffName != '' ">
+                `staff_name`,
+            </if>
+            <if test="e.ownerId != null ">
+                `owner_id`,
+            </if>
+            <if test="e.ownerLogname != null and e.ownerLogname != '' ">
+                `owner_logname`,
+            </if>
+            <if test="e.ownerName != null and e.ownerName != '' ">
+                `owner_name`,
+            </if>
+            <if test="e.perfectMatchs != null ">
+                `perfect_matchs`,
+            </if>
+            <if test="e.exactMatchs != null ">
+                `exact_matchs`,
+            </if>
+            <if test="e.similarityMatchs != null ">
+                `similarity_matchs`,
+            </if>
+            <if test="e.misMatchCount != null ">
+                `mis_match_count`,
+            </if>
+            <if test="e.solvedCount != null ">
+                `solved_count`,
+            </if>
+            <if test="e.unsolvedCount != null ">
+                `unsolved_count`,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="e.id != null and e.id != '' ">
+                #{e.id,jdbcType=VARCHAR},
+            </if>
+            <if test="e.createDate != null">
+                #{e.createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.createBy != null and e.createBy != '' ">
+                #{e.createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="e.companyId != null and e.companyId != '' ">
+                #{e.companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatRecordType != null" >
+                #{e.chatRecordType,jdbcType=INTEGER},
+            </if>
+            <if test="e.myData != null and e.myData != '' " >
+                #{e.myData,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatStatus != null" >
+                #{e.chatStatus,jdbcType=INTEGER},
+            </if>
+            <if test="e.isTransfer != null" >
+                #{e.isTransfer,jdbcType=INTEGER},
+            </if>
+            <if test="e.uid != null and e.uid != '' " >
+                #{e.uid,jdbcType=VARCHAR},
+            </if>
+            <if test="e.grade != null" >
+                #{e.grade,jdbcType=INTEGER},
+            </if>
+            <if test="e.category != null and e.category != '' " >
+                #{e.category,jdbcType=VARCHAR},
+            </if>
+            <if test="e.name != null and e.name != '' " >
+                #{e.name,jdbcType=VARCHAR},
+            </if>
+            <if test="e.nickName != null and e.nickName != '' " >
+                #{e.nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.gender != null" >
+                #{e.gender,jdbcType=INTEGER},
+            </if>
+            <if test="e.age != null and e.age != '' " >
+                #{e.age,jdbcType=VARCHAR},
+            </if>
+            <if test="e.birthday != null and e.birthday != '' " >
+                #{e.birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="e.maritalStatus != null" >
+                #{e.maritalStatus,jdbcType=INTEGER},
+            </if>
+            <if test="e.phone != null and e.phone != '' " >
+                #{e.phone,jdbcType=VARCHAR},
+            </if>
+            <if test="e.qq != null and e.qq != '' " >
+                #{e.qq,jdbcType=VARCHAR},
+            </if>
+            <if test="e.wechat != null and e.wechat != '' " >
+                #{e.wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="e.email != null and e.email != '' " >
+                #{e.email,jdbcType=VARCHAR},
+            </if>
+            <if test="e.nation != null and e.nation != '' " >
+                #{e.nation,jdbcType=VARCHAR},
+            </if>
+            <if test="e.province != null and e.province != '' " >
+                #{e.province,jdbcType=VARCHAR},
+            </if>
+            <if test="e.city != null and e.city != '' " >
+                #{e.city,jdbcType=VARCHAR},
+            </if>
+            <if test="e.address != null and e.address != '' " >
+                #{e.address,jdbcType=VARCHAR},
+            </if>
+            <if test="e.photo != null and e.photo != '' " >
+                #{e.photo,jdbcType=VARCHAR},
+            </if>
+            <if test="e.memo != null and e.memo != '' " >
+                #{e.memo,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c1 != null and e.c1 != ''">
+                #{e.c1,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c2 != null and e.c2 != ''">
+                #{e.c2,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c3 != null and e.c3 != ''">
+                #{e.c3,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c4 != null and e.c4 != ''">
+                #{e.c4,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c5 != null and e.c5 != ''">
+                #{e.c5,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c6 != null and e.c6 != ''">
+                #{e.c6,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c7 != null and e.c7 != ''">
+                #{e.c7,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c8 != null and e.c8 != ''">
+                #{e.c8,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c9 != null and e.c9 != ''">
+                #{e.c9,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c10 != null and e.c10 != ''">
+                #{e.c10,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c11 != null and e.c11 != ''">
+                #{e.c11,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c12 != null and e.c12 != ''">
+                #{e.c12,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c13 != null and e.c13 != ''">
+                #{e.c13,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c14 != null and e.c14 != ''">
+                #{e.c14,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c15 != null and e.c15 != ''">
+                #{e.c15,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c16 != null and e.c16 != ''">
+                #{e.c16,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c17 != null and e.c17 != ''">
+                #{e.c17,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c18 != null and e.c18 != ''">
+                #{e.c18,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c19 != null and e.c19 != ''">
+                #{e.c19,jdbcType=VARCHAR},
+            </if>
+            <if test="e.c20 != null and e.c20 != ''">
+                #{e.c20,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorEnterTime != null" >
+                #{e.visitorEnterTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.visitorMedia != null" >
+                #{e.visitorMedia,jdbcType=INTEGER},
+            </if>
+            <if test="e.visitorType != null" >
+                #{e.visitorType,jdbcType=INTEGER},
+            </if>
+            <if test="e.mediaId != null and e.mediaId != '' " >
+                #{e.mediaId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorId != null and e.visitorId != '' " >
+                #{e.visitorId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorName != null and e.visitorName != '' " >
+                #{e.visitorName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorPhoto != null and e.visitorPhoto != '' " >
+                #{e.visitorPhoto,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitTimes != null" >
+                #{e.visitTimes,jdbcType=INTEGER},
+            </if>
+            <if test="e.visitorLan != null and e.visitorLan != '' " >
+                #{e.visitorLan,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorIp != null and e.visitorIp != '' " >
+                #{e.visitorIp,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorCountry != null and e.visitorCountry != '' " >
+                #{e.visitorCountry,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorProvince != null and e.visitorProvince != '' " >
+                #{e.visitorProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="e.visitorCity != null and e.visitorCity != '' " >
+                #{e.visitorCity,jdbcType=VARCHAR},
+            </if>
+            <if test="e.browserName != null and e.browserName != '' " >
+                #{e.browserName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.browserVersion != null and e.browserVersion != '' " >
+                #{e.browserVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="e.screenResolution != null and e.screenResolution != '' " >
+                #{e.screenResolution,jdbcType=VARCHAR},
+            </if>
+            <if test="e.osName != null and e.osName != '' " >
+                #{e.osName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.osVersion != null and e.osVersion != '' " >
+                #{e.osVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="e.se != null and e.se != '' " >
+                #{e.se,jdbcType=VARCHAR},
+            </if>
+            <if test="e.keyword != null and e.keyword != '' " >
+                #{e.keyword,jdbcType=VARCHAR},
+            </if>
+            <if test="e.biddingWord != null and e.biddingWord != '' " >
+                #{e.biddingWord,jdbcType=VARCHAR},
+            </if>
+            <if test="e.keywordType != null" >
+                #{e.keywordType,jdbcType=INTEGER},
+            </if>
+            <if test="e.referPage != null and e.referPage != '' " >
+                #{e.referPage,jdbcType=VARCHAR},
+            </if>
+            <if test="e.firstTime != null" >
+                #{e.firstTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.firstPage != null and e.firstPage != '' " >
+                #{e.firstPage,jdbcType=VARCHAR},
+            </if>
+            <if test="e.firstPageTitle != null and e.firstPageTitle != '' " >
+                #{e.firstPageTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="e.firstPageAlias != null and e.firstPageAlias != '' " >
+                #{e.firstPageAlias,jdbcType=VARCHAR},
+            </if>
+            <if test="e.lastChatTime != null" >
+                #{e.lastChatTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.lastChatStaffId != null" >
+                #{e.lastChatStaffId,jdbcType=BIGINT},
+            </if>
+            <if test="e.lastChatStaffLogname != null and e.lastChatStaffLogname != '' " >
+                #{e.lastChatStaffLogname,jdbcType=VARCHAR},
+            </if>
+            <if test="e.lastChatStaffName != null and e.lastChatStaffName != '' " >
+                #{e.lastChatStaffName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.routeId != null" >
+                #{e.routeId,jdbcType=BIGINT},
+            </if>
+            <if test="e.routeName != null and e.routeName != '' " >
+                #{e.routeName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.styleId != null" >
+                #{e.styleId,jdbcType=BIGINT},
+            </if>
+            <if test="e.styleName != null and e.styleName != '' " >
+                #{e.styleName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.routeChatDepartmentId != null" >
+                #{e.routeChatDepartmentId,jdbcType=BIGINT},
+            </if>
+            <if test="e.routeChatDepartmentName != null and e.routeChatDepartmentName != '' " >
+                #{e.routeChatDepartmentName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatPage != null and e.chatPage != '' " >
+                #{e.chatPage,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatPageTitle != null and e.chatPageTitle != '' " >
+                #{e.chatPageTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatTimes != null" >
+                #{e.chatTimes,jdbcType=INTEGER},
+            </if>
+            <if test="e.chatEvent != null" >
+                #{e.chatEvent,jdbcType=INTEGER},
+            </if>
+            <if test="e.chatRequestTime != null" >
+                #{e.chatRequestTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.chatAnswerTime != null" >
+                #{e.chatAnswerTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.chatType != null" >
+                #{e.chatType,jdbcType=INTEGER},
+            </if>
+            <if test="e.chatStaffId != null" >
+                #{e.chatStaffId,jdbcType=BIGINT},
+            </if>
+            <if test="e.chatStaffLogname != null and e.chatStaffLogname != '' " >
+                #{e.chatStaffLogname,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatStaffName != null and e.chatStaffName != '' " >
+                #{e.chatStaffName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatStaffRole != null and e.chatStaffRole != '' " >
+                #{e.chatStaffRole,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatEntrance != null and e.chatEntrance != '' " >
+                #{e.chatEntrance,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatRecordId != null and e.chatRecordId != '' " >
+                #{e.chatRecordId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatWaitTime != null" >
+                #{e.chatWaitTime,jdbcType=BIGINT},
+            </if>
+            <if test="e.chatDepartmentId != null" >
+                #{e.chatDepartmentId,jdbcType=BIGINT},
+            </if>
+            <if test="e.chatDepartmentName != null and e.chatDepartmentName != '' " >
+                #{e.chatDepartmentName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatScore != null" >
+                #{e.chatScore,jdbcType=INTEGER},
+            </if>
+            <if test="e.scoreDimension != null and e.scoreDimension != '' " >
+                #{e.scoreDimension,jdbcType=VARCHAR},
+            </if>
+            <if test="e.scoreSuggest != null and e.scoreSuggest != '' " >
+                #{e.scoreSuggest,jdbcType=VARCHAR},
+            </if>
+            <if test="e.scoreChatStaffId != null and e.scoreChatStaffId != '' " >
+                #{e.scoreChatStaffId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.scoreChatStaffLogname != null and e.scoreChatStaffLogname != '' " >
+                #{e.scoreChatStaffLogname,jdbcType=VARCHAR},
+            </if>
+            <if test="e.scoreChatStaffName != null and e.scoreChatStaffName != '' " >
+                #{e.scoreChatStaffName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatSubject != null and e.chatSubject != '' " >
+                #{e.chatSubject,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatSubjectMemo != null and e.chatSubjectMemo != '' " >
+                #{e.chatSubjectMemo,jdbcType=VARCHAR},
+            </if>
+            <if test="e.chatEndTime != null" >
+                #{e.chatEndTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="e.chatEndType != null" >
+                #{e.chatEndType,jdbcType=INTEGER},
+            </if>
+            <if test="e.chatTotalTime != null" >
+                #{e.chatTotalTime,jdbcType=BIGINT},
+            </if>
+            <if test="e.firstAnswerTime != null" >
+                #{e.firstAnswerTime,jdbcType=BIGINT},
+            </if>
+            <if test="e.avgAnswerTime != null" >
+                #{e.avgAnswerTime,jdbcType=BIGINT},
+            </if>
+            <if test="e.visitorSendMsg != null" >
+                #{e.visitorSendMsg,jdbcType=INTEGER},
+            </if>
+            <if test="e.staffSendMsg != null" >
+                #{e.staffSendMsg,jdbcType=INTEGER},
+            </if>
+            <if test="e.activelyinviteEvaluating != null" >
+                #{e.activelyinviteEvaluating,jdbcType=INTEGER},
+            </if>
+            <if test="e.chatContent != null and e.chatContent != '' " >
+                #{e.chatContent,jdbcType=VARCHAR},
+            </if>
+            <if test="e.staffId != null" >
+                #{e.staffId,jdbcType=BIGINT},
+            </if>
+            <if test="e.staffLogname != null and e.staffLogname != '' " >
+                #{e.staffLogname,jdbcType=VARCHAR},
+            </if>
+            <if test="e.staffName != null and e.staffName != '' " >
+                #{e.staffName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.ownerId != null" >
+                #{e.ownerId,jdbcType=BIGINT},
+            </if>
+            <if test="e.ownerLogname != null and e.ownerLogname != '' " >
+                #{e.ownerLogname,jdbcType=VARCHAR},
+            </if>
+            <if test="e.ownerName != null and e.ownerName != '' " >
+                #{e.ownerName,jdbcType=VARCHAR},
+            </if>
+            <if test="e.perfectMatchs != null" >
+                #{e.perfectMatchs,jdbcType=INTEGER},
+            </if>
+            <if test="e.exactMatchs != null" >
+                #{e.exactMatchs,jdbcType=INTEGER},
+            </if>
+            <if test="e.similarityMatchs != null" >
+                #{e.similarityMatchs,jdbcType=INTEGER},
+            </if>
+            <if test="e.misMatchCount != null" >
+                #{e.misMatchCount,jdbcType=INTEGER},
+            </if>
+            <if test="e.solvedCount != null" >
+                #{e.solvedCount,jdbcType=INTEGER},
+            </if>
+            <if test="e.unsolvedCount != null" >
+                #{e.unsolvedCount,jdbcType=INTEGER},
+            </if>
+        </trim>
+        <trim prefix="ON DUPLICATE KEY UPDATE" suffixOverrides=",">
+            <if test="e.companyId != null and e.companyId != ''">
+                `company_id` = VALUES(`company_id`),
+            </if>
+            <if test="e.updateDate != null">
+                `update_date` = VALUES(`update_date`),
+            </if>
+            <if test="e.updateBy != null and e.updateBy != '' ">
+                `update_by` = VALUES(`update_by`),
+            </if>
+            <if test="e.chatRecordType != null ">
+                `chat_record_type` = VALUES(`chat_record_type`),
+            </if>
+            <if test="e.myData != null and e.myData != '' ">
+                `my_data` = VALUES(`my_data`),
+            </if>
+            <if test="e.chatStatus != null">
+                `chat_status` = VALUES(`chat_status`),
+            </if>
+            <if test="e.isTransfer != null ">
+                `is_transfer` = VALUES(`is_transfer`),
+            </if>
+            <if test="e.uid != null and e.uid != '' ">
+                `uid` = VALUES(`uid`),
+            </if>
+            <if test="e.grade != null ">
+                `grade` = VALUES(`grade`),
+            </if>
+            <if test="e.category != null and e.category != '' ">
+                `category` = VALUES(`category`),
+            </if>
+            <if test="e.name != null and e.name != '' ">
+                `name` = VALUES(`name`),
+            </if>
+            <if test="e.nickName != null and e.nickName != '' ">
+                `nick_name` = VALUES(`nick_name`),
+            </if>
+            <if test="e.gender != null">
+                `gender` = VALUES(`gender`),
+            </if>
+            <if test="e.age != null and e.age != '' ">
+                `age` = VALUES(`age`),
+            </if>
+            <if test="e.birthday != null and e.birthday != '' ">
+                `birthday` = VALUES(`birthday`),
+            </if>
+            <if test="e.maritalStatus != null ">
+                `marital_status` = VALUES(`marital_status`),
+            </if>
+            <if test="e.phone != null and e.phone != '' ">
+                `phone` = VALUES(`phone`),
+            </if>
+            <if test="e.qq != null and e.qq != '' ">
+                `qq` = VALUES(`qq`),
+            </if>
+            <if test="e.wechat != null and e.wechat != '' ">
+                `wechat` = VALUES(`wechat`),
+            </if>
+            <if test="e.email != null and e.email != '' ">
+                `email` = VALUES(`email`),
+            </if>
+            <if test="e.nation != null and e.nation != '' ">
+                `nation` = VALUES(`nation`),
+            </if>
+            <if test="e.province != null and e.province != '' ">
+                `province` = VALUES(`province`),
+            </if>
+            <if test="e.city != null and e.city != '' ">
+                `city` = VALUES(`city`),
+            </if>
+            <if test="e.address != null and e.address != '' ">
+                `address` = VALUES(`address`),
+            </if>
+            <if test="e.photo != null and e.photo != '' ">
+                `photo` = VALUES(`photo`),
+            </if>
+            <if test="e.memo != null and e.memo != '' ">
+                `memo` = VALUES(`memo`),
+            </if>
+            <if test="e.c1 != null and e.c1 != ''">
+                `c1` = VALUES(`c1`),
+            </if>
+            <if test="e.c2 != null and e.c2 != ''">
+                `c2` = VALUES(`c2`),
+            </if>
+            <if test="e.c3 != null and e.c3 != ''">
+                `c3` = VALUES(`c3`),
+            </if>
+            <if test="e.c4 != null and e.c4 != ''">
+                `c4` = VALUES(`c4`),
+            </if>
+            <if test="e.c5 != null and e.c5 != ''">
+                `c5` = VALUES(`c5`),
+            </if>
+            <if test="e.c6 != null and e.c6 != ''">
+                `c6` = VALUES(`c6`),
+            </if>
+            <if test="e.c7 != null and e.c7 != ''">
+                `c7` = VALUES(`c7`),
+            </if>
+            <if test="e.c8 != null and e.c8 != ''">
+                `c8` = VALUES(`c8`),
+            </if>
+            <if test="e.c9 != null and e.c9 != ''">
+                `c9` = VALUES(`c9`),
+            </if>
+            <if test="e.c10 != null and e.c10 != ''">
+                `c10` = VALUES(`c10`),
+            </if>
+            <if test="e.c11 != null and e.c11 != ''">
+                `c11` = VALUES(`c11`),
+            </if>
+            <if test="e.c12 != null and e.c12 != ''">
+                `c12` = VALUES(`c12`),
+            </if>
+            <if test="e.c13 != null and e.c13 != ''">
+                `c13` = VALUES(`c13`),
+            </if>
+            <if test="e.c14 != null and e.c14 != ''">
+                `c14` = VALUES(`c14`),
+            </if>
+            <if test="e.c15 != null and e.c15 != ''">
+                `c15` = VALUES(`c15`),
+            </if>
+            <if test="e.c16 != null and e.c16 != ''">
+                `c16` = VALUES(`c16`),
+            </if>
+            <if test="e.c17 != null and e.c17 != ''">
+                `c17` = VALUES(`c17`),
+            </if>
+            <if test="e.c18 != null and e.c18 != ''">
+                `c18` = VALUES(`c18`),
+            </if>
+            <if test="e.c19 != null and e.c19 != ''">
+                `c19` = VALUES(`c19`),
+            </if>
+            <if test="e.c20 != null and e.c20 != ''">
+                `c20` = VALUES(`c20`),
+            </if>
+            <if test="e.visitorEnterTime != null ">
+                `visitor_enter_time` = VALUES(`visitor_enter_time`),
+            </if>
+            <if test="e.visitorMedia != null ">
+                `visitor_media` = VALUES(`visitor_media`),
+            </if>
+            <if test="e.visitorType != null ">
+                `visitor_type` = VALUES(`visitor_type`),
+            </if>
+            <if test="e.mediaId != null and e.mediaId != '' ">
+                `media_id` = VALUES(`media_id`),
+            </if>
+            <if test="e.visitorId != null and e.visitorId != '' ">
+                `visitor_id` = VALUES(`visitor_id`),
+            </if>
+            <if test="e.visitorName != null and e.visitorName != '' ">
+                `visitor_name` = VALUES(`visitor_name`),
+            </if>
+            <if test="e.visitorPhoto != null and e.visitorPhoto != '' ">
+                `visitor_photo` = VALUES(`visitor_photo`),
+            </if>
+            <if test="e.visitTimes != null ">
+                `visit_times` = VALUES(`visit_times`),
+            </if>
+            <if test="e.visitorLan != null and e.visitorLan != '' ">
+                `visitor_lan` = VALUES(`visitor_lan`),
+            </if>
+            <if test="e.visitorIp != null and e.visitorIp != '' ">
+                `visitor_ip` = VALUES(`visitor_ip`),
+            </if>
+            <if test="e.visitorCountry != null and e.visitorCountry != '' ">
+                `visitor_country` = VALUES(`visitor_country`),
+            </if>
+            <if test="e.visitorProvince != null and e.visitorProvince != '' ">
+                `visitor_province` = VALUES(`visitor_province`),
+            </if>
+            <if test="e.visitorCity != null and e.visitorCity != '' ">
+                `visitor_city` = VALUES(`visitor_city`),
+            </if>
+            <if test="e.browserName != null and e.browserName != '' ">
+                `browser_name` = VALUES(`browser_name`),
+            </if>
+            <if test="e.browserVersion != null and e.browserVersion != '' ">
+                `browser_version` = VALUES(`browser_version`),
+            </if>
+            <if test="e.screenResolution != null and e.screenResolution != '' ">
+                `screen_resolution` = VALUES(`screen_resolution`),
+            </if>
+            <if test="e.osName != null and e.osName != '' ">
+                `os_name` = VALUES(`os_name`),
+            </if>
+            <if test="e.osVersion != null and e.osVersion != '' ">
+                `os_version` = VALUES(`os_version`),
+            </if>
+            <if test="e.se != null and e.se != '' ">
+                `se` = VALUES(`se`),
+            </if>
+            <if test="e.keyword != null and e.keyword != '' ">
+                `keyword` = VALUES(`keyword`),
+            </if>
+            <if test="e.biddingWord != null and e.biddingWord != '' ">
+                `bidding_word` = VALUES(`bidding_word`),
+            </if>
+            <if test="e.keywordType != null ">
+                `keyword_type` = VALUES(`keyword_type`),
+            </if>
+            <if test="e.referPage != null and e.referPage != '' ">
+                `refer_page` = VALUES(`refer_page`),
+            </if>
+            <if test="e.firstTime != null ">
+                `first_time` = VALUES(`first_time`),
+            </if>
+            <if test="e.firstPage != null and e.firstPage != '' ">
+                `first_page` = VALUES(`first_page`),
+            </if>
+            <if test="e.firstPageTitle != null and e.firstPageTitle != '' ">
+                `first_page_title` = VALUES(`first_page_title`),
+            </if>
+            <if test="e.firstPageAlias != null and e.firstPageAlias != '' ">
+                `first_page_alias` = VALUES(`first_page_alias`),
+            </if>
+            <if test="e.lastChatTime != null ">
+                `last_chat_time` = VALUES(`last_chat_time`),
+            </if>
+            <if test="e.lastChatStaffId != null ">
+                `last_chat_staff_id` = VALUES(`last_chat_staff_id`),
+            </if>
+            <if test="e.lastChatStaffLogname != null and e.lastChatStaffLogname != '' ">
+                `last_chat_staff_logname` = VALUES(`last_chat_staff_logname`),
+            </if>
+            <if test="e.lastChatStaffName != null and e.lastChatStaffName != '' ">
+                `last_chat_staff_name` = VALUES(`last_chat_staff_name`),
+            </if>
+            <if test="e.routeId != null ">
+                `route_id` = VALUES(`route_id`),
+            </if>
+            <if test="e.routeName != null and e.routeName != '' ">
+                `route_name` = VALUES(`route_name`),
+            </if>
+            <if test="e.styleId != null ">
+                `style_id` = VALUES(`style_id`),
+            </if>
+            <if test="e.styleName != null and e.styleName != '' ">
+                `style_name` = VALUES(`style_name`),
+            </if>
+            <if test="e.routeChatDepartmentId != null ">
+                `route_chat_department_id` = VALUES(`route_chat_department_id`),
+            </if>
+            <if test="e.routeChatDepartmentName != null and e.routeChatDepartmentName != '' ">
+                `route_chat_department_name` = VALUES(`route_chat_department_name`),
+            </if>
+            <if test="e.chatPage != null and e.chatPage != '' ">
+                `chat_page` = VALUES(`chat_page`),
+            </if>
+            <if test="e.chatPageTitle != null and e.chatPageTitle != '' ">
+                `chat_page_title` = VALUES(`chat_page_title`),
+            </if>
+            <if test="e.chatTimes != null ">
+                `chat_times` = VALUES(`chat_times`),
+            </if>
+            <if test="e.chatEvent != null ">
+                `chat_event` = VALUES(`chat_event`),
+            </if>
+            <if test="e.chatRequestTime != null ">
+                `chat_request_time` = VALUES(`chat_request_time`),
+            </if>
+            <if test="e.chatAnswerTime != null ">
+                `chat_answer_time` = VALUES(`chat_answer_time`),
+            </if>
+            <if test="e.chatType != null ">
+                `chat_type` = VALUES(`chat_type`),
+            </if>
+            <if test="e.chatStaffId != null ">
+                `chat_staff_id` = VALUES(`chat_staff_id`),
+            </if>
+            <if test="e.chatStaffLogname != null and e.chatStaffLogname != '' ">
+                `chat_staff_logname` = VALUES(`chat_staff_logname`),
+            </if>
+            <if test="e.chatStaffName != null and e.chatStaffName != '' ">
+                `chat_staff_name` = VALUES(`chat_staff_name`),
+            </if>
+            <if test="e.chatStaffRole != null and e.chatStaffRole != '' ">
+                `chat_staff_role` = VALUES(`chat_staff_role`),
+            </if>
+            <if test="e.chatEntrance != null and e.chatEntrance != '' ">
+                `chat_entrance` = VALUES(`chat_entrance`),
+            </if>
+            <if test="e.chatRecordId != null and e.chatRecordId != '' ">
+                `chat_record_id` = VALUES(`chat_record_id`),
+            </if>
+            <if test="e.chatWaitTime != null ">
+                `chat_wait_time` = VALUES(`chat_wait_time`),
+            </if>
+            <if test="e.chatDepartmentId != null ">
+                `chat_department_id` = VALUES(`chat_department_id`),
+            </if>
+            <if test="e.chatDepartmentName != null and e.chatDepartmentName != '' ">
+                `chat_department_name` = VALUES(`chat_department_name`),
+            </if>
+            <if test="e.chatScore != null ">
+                `chat_score` = VALUES(`chat_score`),
+            </if>
+            <if test="e.scoreDimension != null and e.scoreDimension != '' ">
+                `score_dimension` = VALUES(`score_dimension`),
+            </if>
+            <if test="e.scoreSuggest != null and e.scoreSuggest != '' ">
+                `score_suggest` = VALUES(`score_suggest`),
+            </if>
+            <if test="e.scoreChatStaffId != null and e.scoreChatStaffId != '' ">
+                `score_chat_staff_id` = VALUES(`score_chat_staff_id`),
+            </if>
+            <if test="e.scoreChatStaffLogname != null and e.scoreChatStaffLogname != '' ">
+                `score_chat_staff_logname` = VALUES(`score_chat_staff_logname`),
+            </if>
+            <if test="e.scoreChatStaffName != null and e.scoreChatStaffName != '' ">
+                `score_chat_staff_name` = VALUES(`score_chat_staff_name`),
+            </if>
+            <if test="e.chatSubject != null and e.chatSubject != '' ">
+                `chat_subject` = VALUES(`chat_subject`),
+            </if>
+            <if test="e.chatSubjectMemo != null and e.chatSubjectMemo != '' ">
+                `chat_subject_memo` = VALUES(`chat_subject_memo`),
+            </if>
+            <if test="e.chatEndTime != null ">
+                `chat_end_time` = VALUES(`chat_end_time`),
+            </if>
+            <if test="e.chatEndType != null ">
+                `chat_end_type` = VALUES(`chat_end_type`),
+            </if>
+            <if test="e.chatTotalTime != null ">
+                `chat_total_time` = VALUES(`chat_total_time`),
+            </if>
+            <if test="e.firstAnswerTime != null ">
+                `first_answer_time` = VALUES(`first_answer_time`),
+            </if>
+            <if test="e.avgAnswerTime != null ">
+                `avg_answer_time` = VALUES(`avg_answer_time`),
+            </if>
+            <if test="e.visitorSendMsg != null ">
+                `visitor_send_msg` = VALUES(`visitor_send_msg`),
+            </if>
+            <if test="e.staffSendMsg != null ">
+                `staff_send_msg` = VALUES(`staff_send_msg`),
+            </if>
+            <if test="e.activelyinviteEvaluating != null ">
+                `activelyInvite_evaluating` = VALUES(`activelyInvite_evaluating`),
+            </if>
+            <if test="e.chatContent != null and e.chatContent != '' ">
+                `chat_content` = VALUES(`chat_content`),
+            </if>
+            <if test="e.staffId != null ">
+                `staff_id` = VALUES(`staff_id`),
+            </if>
+            <if test="e.staffLogname != null and e.staffLogname != '' ">
+                `staff_logname` = VALUES(`staff_logname`),
+            </if>
+            <if test="e.staffName != null and e.staffName != '' ">
+                `staff_name` = VALUES(`staff_name`),
+            </if>
+            <if test="e.ownerId != null ">
+                `owner_id` = VALUES(`owner_id`),
+            </if>
+            <if test="e.ownerLogname != null and e.ownerLogname != '' ">
+                `owner_logname` = VALUES(`owner_logname`),
+            </if>
+            <if test="e.ownerName != null and e.ownerName != '' ">
+                `owner_name` = VALUES(`owner_name`),
+            </if>
+            <if test="e.perfectMatchs != null ">
+                `perfect_matchs` = VALUES(`perfect_matchs`),
+            </if>
+            <if test="e.exactMatchs != null ">
+                `exact_matchs` = VALUES(`exact_matchs`),
+            </if>
+            <if test="e.similarityMatchs != null ">
+                `similarity_matchs` = VALUES(`similarity_matchs`),
+            </if>
+            <if test="e.misMatchCount != null ">
+                `mis_match_count` = VALUES(`mis_match_count`),
+            </if>
+            <if test="e.solvedCount != null ">
+                `solved_count` = VALUES(`solved_count`),
+            </if>
+            <if test="e.unsolvedCount != null ">
+                `unsolved_count` = VALUES(`unsolved_count`),
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

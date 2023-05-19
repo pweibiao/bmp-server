@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerApiLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerApiLog">
+            <id property="msgId" column="msg_id" jdbcType="VARCHAR"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="timestamp" column="timestamp" jdbcType="BIGINT"/>
+            <result property="dataType" column="data_type" jdbcType="VARCHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="method" column="method" jdbcType="VARCHAR"/>
+            <result property="ciphertext" column="ciphertext" jdbcType="VARCHAR"/>
+            <result property="plaintext" column="plaintext" jdbcType="VARCHAR"/>
+            <result property="postTime" column="post_time" jdbcType="BIGINT"/>
+            <result property="debug" column="debug" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `msg_id`,`company_id`,`timestamp`,
+        `data_type`,`url`,`method`,
+        `ciphertext`,`plaintext`,`post_time`, `debug`
+    </sql>
+
+    <insert id="insertOrUpdate" parameterType="bmpServerApiLog">
+        INSERT IGNORE INTO `bmp_server_api_log`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="e.msgId != null and e.msgId != ''">
+                `msg_id`,
+            </if>
+            <if test="e.companyId != null and e.companyId != ''">
+                `company_id`,
+            </if>
+            <if test="e.timestamp != null">
+                `timestamp`,
+            </if>
+            <if test="e.dataType != null and e.dataType != ''">
+                `data_type`,
+            </if>
+            <if test="e.url != null and e.url != ''">
+                `url`,
+            </if>
+            <if test="e.method != null and e.method != ''">
+                `method`,
+            </if>
+            <if test="e.ciphertext != null and e.ciphertext != ''">
+                `ciphertext`,
+            </if>
+            <if test="e.plaintext != null and e.plaintext != ''">
+                `plaintext`,
+            </if>
+            <if test="e.postTime != null">
+                `post_time`,
+            </if>
+            <if test="e.debug != null and e.debug != ''">
+                `debug`,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="e.msgId != null and e.msgId != ''">
+                #{e.msgId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.companyId != null and e.companyId != ''">
+                #{e.companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="e.timestamp != null">
+                #{e.timestamp,jdbcType=BIGINT},
+            </if>
+            <if test="e.dataType != null and e.dataType != ''">
+                #{e.dataType,jdbcType=VARCHAR},
+            </if>
+            <if test="e.url != null and e.url != ''">
+                #{e.url,jdbcType=VARCHAR},
+            </if>
+            <if test="e.method != null and e.method != ''">
+                #{e.method,jdbcType=VARCHAR},
+            </if>
+            <if test="e.ciphertext != null and e.ciphertext != ''">
+                #{e.ciphertext,jdbcType=VARCHAR},
+            </if>
+            <if test="e.plaintext != null and e.plaintext != ''">
+                #{e.plaintext,jdbcType=VARCHAR},
+            </if>
+            <if test="e.postTime != null">
+                #{e.postTime,jdbcType=BIGINT},
+            </if>
+            <if test="e.debug != null">
+                #{e.debug,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        <trim prefix="ON DUPLICATE KEY UPDATE" suffixOverrides=",">
+            <if test="e.companyId != null and e.companyId != ''">
+                `company_id` = VALUES(`company_id`),
+            </if>
+            <if test="e.timestamp != null">
+                `timestamp` = VALUES(`timestamp`),
+            </if>
+            <if test="e.dataType != null and e.dataType != ''">
+                `data_type` = VALUES(`data_type`),
+            </if>
+            <if test="e.url != null and e.url != ''">
+                `url` = VALUES(`url`),
+            </if>
+            <if test="e.method != null and e.method != ''">
+                `method` = VALUES(`method`),
+            </if>
+            <if test="e.ciphertext != null and e.ciphertext != ''">
+                `ciphertext` = VALUES(`ciphertext`),
+            </if>
+            <if test="e.plaintext != null and e.plaintext != ''">
+                `plaintext` = VALUES(`plaintext`),
+            </if>
+            <if test="e.postTime != null">
+                `post_time` = VALUES(`post_time`),
+            </if>
+            <if test="e.debug != null">
+                `debug` = VALUES(`debug`),
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

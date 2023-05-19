@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerTicketRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerTicketRecord">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="myData" column="my_data" jdbcType="VARCHAR"/>
+            <result property="jobId" column="job_id" jdbcType="BIGINT"/>
+            <result property="jobAttribute" column="job_Attribute" jdbcType="INTEGER"/>
+            <result property="visitorEnterTime" column="visitor_enter_time" jdbcType="TIMESTAMP"/>
+            <result property="visitorMedia" column="visitor_media" jdbcType="INTEGER"/>
+            <result property="visitorType" column="visitor_type" jdbcType="INTEGER"/>
+            <result property="mediaId" column="media_id" jdbcType="VARCHAR"/>
+            <result property="visitorId" column="visitor_id" jdbcType="VARCHAR"/>
+            <result property="visitorName" column="visitor_name" jdbcType="VARCHAR"/>
+            <result property="visitorPhoto" column="visitor_photo" jdbcType="VARCHAR"/>
+            <result property="visitTimes" column="visit_times" jdbcType="INTEGER"/>
+            <result property="visitorLan" column="visitor_lan" jdbcType="VARCHAR"/>
+            <result property="visitorIp" column="visitor_ip" jdbcType="VARCHAR"/>
+            <result property="visitorCountry" column="visitor_country" jdbcType="VARCHAR"/>
+            <result property="visitorProvince" column="visitor_province" jdbcType="VARCHAR"/>
+            <result property="visitorCity" column="visitor_city" jdbcType="VARCHAR"/>
+            <result property="browserName" column="browser_name" jdbcType="VARCHAR"/>
+            <result property="browserVersion" column="browser_version" jdbcType="VARCHAR"/>
+            <result property="screenResolution" column="screen_resolution" jdbcType="VARCHAR"/>
+            <result property="osName" column="os_name" jdbcType="VARCHAR"/>
+            <result property="osVersion" column="os_version" jdbcType="VARCHAR"/>
+            <result property="se" column="se" jdbcType="VARCHAR"/>
+            <result property="keyword" column="keyword" jdbcType="VARCHAR"/>
+            <result property="biddingWord" column="bidding_word" jdbcType="VARCHAR"/>
+            <result property="keywordType" column="keyword_type" jdbcType="INTEGER"/>
+            <result property="referPage" column="refer_page" jdbcType="VARCHAR"/>
+            <result property="firstTime" column="first_time" jdbcType="TIMESTAMP"/>
+            <result property="firstPage" column="first_page" jdbcType="VARCHAR"/>
+            <result property="firstPageTitle" column="first_page_title" jdbcType="VARCHAR"/>
+            <result property="firstPageAlias" column="first_page_alias" jdbcType="VARCHAR"/>
+            <result property="lastChatTime" column="last_chat_time" jdbcType="TIMESTAMP"/>
+            <result property="lastChatStaffId" column="last_chat_staff_id" jdbcType="BIGINT"/>
+            <result property="lastChatStaffLogname" column="last_chat_staff_logname" jdbcType="VARCHAR"/>
+            <result property="lastChatStaffName" column="last_chat_staff_name" jdbcType="VARCHAR"/>
+            <result property="routeId" column="route_id" jdbcType="BIGINT"/>
+            <result property="routeName" column="route_name" jdbcType="VARCHAR"/>
+            <result property="routeStyleId" column="route_style_id" jdbcType="BIGINT"/>
+            <result property="styleName" column="style_name" jdbcType="VARCHAR"/>
+            <result property="chatDepartmentId" column="chat_department_id" jdbcType="BIGINT"/>
+            <result property="chatDepartmentName" column="chat_department_name" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="jobTopic" column="job_topic" jdbcType="BIGINT"/>
+            <result property="jobTopicName" column="job_topic_name" jdbcType="VARCHAR"/>
+            <result property="requesterLan" column="requester_lan" jdbcType="VARCHAR"/>
+            <result property="requesterUserId" column="requester_user_id" jdbcType="VARCHAR"/>
+            <result property="requesterUserType" column="requester_user_type" jdbcType="INTEGER"/>
+            <result property="requesterUserName" column="requester_user_name" jdbcType="VARCHAR"/>
+            <result property="styleId" column="style_id" jdbcType="BIGINT"/>
+            <result property="jobType" column="job_type" jdbcType="INTEGER"/>
+            <result property="departmentId" column="department_id" jdbcType="BIGINT"/>
+            <result property="departmentName" column="department_name" jdbcType="VARCHAR"/>
+            <result property="distributeUserId" column="distribute_user_id" jdbcType="BIGINT"/>
+            <result property="distributeUserName" column="distribute_user_name" jdbcType="VARCHAR"/>
+            <result property="distributeUserRole" column="distribute_user_role" jdbcType="VARCHAR"/>
+            <result property="distributeUserLogname" column="distribute_user_logname" jdbcType="VARCHAR"/>
+            <result property="updatorType" column="updator_type" jdbcType="INTEGER"/>
+            <result property="updatorId" column="updator_id" jdbcType="VARCHAR"/>
+            <result property="updatorName" column="updator_name" jdbcType="VARCHAR"/>
+            <result property="jobFollowerIds" column="job_follower_ids" jdbcType="VARCHAR"/>
+            <result property="jobFollowerNames" column="job_follower_names" jdbcType="VARCHAR"/>
+            <result property="priority" column="priority" jdbcType="INTEGER"/>
+            <result property="jobTemplateId" column="job_template_id" jdbcType="BIGINT"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="replyEmail" column="reply_email" jdbcType="VARCHAR"/>
+            <result property="replyPhone" column="reply_phone" jdbcType="VARCHAR"/>
+            <result property="jobMemo" column="job_memo" jdbcType="VARCHAR"/>
+            <result property="attachments" column="attachments" jdbcType="VARCHAR"/>
+            <result property="crmId" column="crm_id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="category" column="category" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="INTEGER"/>
+            <result property="age" column="age" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="maritalStatus" column="marital_status" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="qq" column="qq" jdbcType="VARCHAR"/>
+            <result property="wechat" column="wechat" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="nation" column="nation" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="photo" column="photo" jdbcType="VARCHAR"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="c1" column="c1" jdbcType="VARCHAR"/>
+            <result property="c2" column="c2" jdbcType="VARCHAR"/>
+            <result property="c3" column="c3" jdbcType="VARCHAR"/>
+            <result property="c4" column="c4" jdbcType="VARCHAR"/>
+            <result property="c5" column="c5" jdbcType="VARCHAR"/>
+            <result property="c6" column="c6" jdbcType="VARCHAR"/>
+            <result property="c7" column="c7" jdbcType="VARCHAR"/>
+            <result property="c8" column="c8" jdbcType="VARCHAR"/>
+            <result property="c9" column="c9" jdbcType="VARCHAR"/>
+            <result property="c10" column="c10" jdbcType="VARCHAR"/>
+            <result property="c11" column="c11" jdbcType="VARCHAR"/>
+            <result property="c12" column="c12" jdbcType="VARCHAR"/>
+            <result property="c13" column="c13" jdbcType="VARCHAR"/>
+            <result property="c14" column="c14" jdbcType="VARCHAR"/>
+            <result property="c15" column="c15" jdbcType="VARCHAR"/>
+            <result property="c16" column="c16" jdbcType="VARCHAR"/>
+            <result property="c17" column="c17" jdbcType="VARCHAR"/>
+            <result property="c18" column="c18" jdbcType="VARCHAR"/>
+            <result property="c19" column="c19" jdbcType="VARCHAR"/>
+            <result property="c20" column="c20" jdbcType="VARCHAR"/>
+            <result property="t1" column="t1" jdbcType="VARCHAR"/>
+            <result property="t2" column="t2" jdbcType="VARCHAR"/>
+            <result property="t3" column="t3" jdbcType="VARCHAR"/>
+            <result property="t4" column="t4" jdbcType="VARCHAR"/>
+            <result property="t5" column="t5" jdbcType="VARCHAR"/>
+            <result property="t6" column="t6" jdbcType="VARCHAR"/>
+            <result property="t7" column="t7" jdbcType="VARCHAR"/>
+            <result property="t8" column="t8" jdbcType="VARCHAR"/>
+            <result property="t9" column="t9" jdbcType="VARCHAR"/>
+            <result property="t10" column="t10" jdbcType="VARCHAR"/>
+            <result property="t11" column="t11" jdbcType="VARCHAR"/>
+            <result property="t12" column="t12" jdbcType="VARCHAR"/>
+            <result property="t13" column="t13" jdbcType="VARCHAR"/>
+            <result property="t14" column="t14" jdbcType="VARCHAR"/>
+            <result property="t15" column="t15" jdbcType="VARCHAR"/>
+            <result property="t16" column="t16" jdbcType="VARCHAR"/>
+            <result property="t17" column="t17" jdbcType="VARCHAR"/>
+            <result property="t18" column="t18" jdbcType="VARCHAR"/>
+            <result property="t19" column="t19" jdbcType="VARCHAR"/>
+            <result property="t20" column="t20" jdbcType="VARCHAR"/>
+            <result property="evaluateDatetime" column="evaluate_datetime" jdbcType="BIGINT"/>
+            <result property="mainItem" column="main_item" jdbcType="INTEGER"/>
+            <result property="comment" column="comment" jdbcType="VARCHAR"/>
+            <result property="subItems" column="sub_items" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`my_data`,
+        `job_id`,`job_Attribute`,`visitor_enter_time`,
+        `visitor_media`,`visitor_type`,`media_id`,
+        `visitor_id`,`visitor_name`,`visitor_photo`,
+        `visit_times`,`visitor_lan`,`visitor_ip`,
+        `visitor_country`,`visitor_province`,`visitor_city`,
+        `browser_name`,`browser_version`,`screen_resolution`,
+        `os_name`,`os_version`,`se`,
+        `keyword`,`bidding_word`,`keyword_type`,
+        `refer_page`,`first_time`,`first_page`,
+        `first_page_title`,`first_page_alias`,`last_chat_time`,
+        `last_chat_staff_id`,`last_chat_staff_logname`,`last_chat_staff_name`,
+        `route_id`,`route_name`,`route_style_id`,
+        `style_name`,`chat_department_id`,`chat_department_name`,
+        `title`,`content`,`job_topic`,
+        `job_topic_name`,`requester_lan`,`requester_user_id`,
+        `requester_user_type`,`requester_user_name`,`style_id`,
+        `job_type`,`department_id`,`department_name`,
+        `distribute_user_id`,`distribute_user_name`,`distribute_user_role`,
+        `distribute_user_logname`,`updator_type`,`updator_id`,
+        `updator_name`,`job_follower_ids`,`job_follower_names`,
+        `priority`,`job_template_id`,`status`,
+        `reply_email`,`reply_phone`,`job_memo`,
+        `attachments`,`crm_id`,`name`,
+        `category`,`nick_name`,`gender`,
+        `age`,`birthday`,`marital_status`,
+        `phone`,`qq`,`wechat`,
+        `email`,`nation`,`province`,
+        `city`,`address`,`photo`,
+        `memo`,`c1`,`c2`,
+        `c3`,`c4`,`c5`,
+        `c6`,`c7`,`c8`,
+        `c9`,`c10`,`c11`,
+        `c12`,`c13`,`c14`,
+        `c15`,`c16`,`c17`,
+        `c18`,`c19`,`c20`,
+        `t1`,`t2`,`t3`,
+        `t4`,`t5`,`t6`,
+        `t7`,`t8`,`t9`,
+        `t10`,`t11`,`t12`,
+        `t13`,`t14`,`t15`,
+        `t16`,`t17`,`t18`,
+        `t19`,`t20`,`evaluate_datetime`,
+        `main_item`,`comment`,`sub_items`
+    </sql>
+</mapper>

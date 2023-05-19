@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对话数据</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>对话数据</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}">点击刷新</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+<table border="1" align="center">
+    <colgroup>
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+    </colgroup>
+    <thead>
+        <tr>
+            <td>唯一ID</td>
+            <td>创建时间</td>
+            <td>创建人</td>
+            <td>更新时间</td>
+            <td>更新人</td>
+            <td>公司ID</td>
+            <td>对话记录类型</td>
+            <td>开发者自定义扩展数据</td>
+            <td>对话状态</td>
+            <td>对话是否存在转接</td>
+            <td>会员唯一值</td>
+            <td>会员级别</td>
+            <td>会员类别</td>
+            <td>会员姓名</td>
+            <td>会员昵称</td>
+            <td>会员性别</td>
+            <td>会员年龄</td>
+            <td>会员生日</td>
+            <td>会员婚姻状况</td>
+            <td>会员联系电话</td>
+            <td>会员QQ</td>
+            <td>会员微信</td>
+            <td>会员邮箱</td>
+            <td>会员国家</td>
+            <td>会员省份</td>
+            <td>会员城市</td>
+            <td>会员地址</td>
+            <td>会员头像地址</td>
+            <td>会员备注信息</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>访客进入网站的时间</td>
+            <td>访客端的媒介</td>
+            <td>访客类型</td>
+            <td>自定义渠道的渠道ID</td>
+            <td>访客ID</td>
+            <td>访客的姓名</td>
+            <td>访客的头像地址</td>
+            <td>访客的来访次数</td>
+            <td>访客的浏览器语言</td>
+            <td>访客的来源IP</td>
+            <td>访客的来源国家</td>
+            <td>访客的来源省份</td>
+            <td>访客的来源城市</td>
+            <td>访客的浏览器名称</td>
+            <td>访客的浏览器版本号</td>
+            <td>访客电脑的分辨率</td>
+            <td>访客电脑的操作系统</td>
+            <td>访客电脑的操作系统版本</td>
+            <td>访客来源的搜索引擎</td>
+            <td>访客来源的关键词</td>
+            <td>推广</td>
+            <td>关键字类型</td>
+            <td>访客进入网站的来源页</td>
+            <td>进入网站的时间</td>
+            <td>访客落地页面的URL</td>
+            <td>访客落地页面的标题</td>
+            <td>访客落地页面的别名</td>
+            <td>上次对话的时间</td>
+            <td>上次对话的客服ID</td>
+            <td>上次对话的客服账号</td>
+            <td>上次对话的客服姓名</td>
+            <td>接入对话的路由ID</td>
+            <td>路由名称</td>
+            <td>路由所使用的样式ID</td>
+            <td>路由所使用样式的名称</td>
+            <td>本次分配对话的接待组ID</td>
+            <td>本地分配对话的接待组名称</td>
+            <td>对话页面</td>
+            <td>对话页面标题</td>
+            <td>访客的对话次数</td>
+            <td>对话发起的方式</td>
+            <td>请求对话的时间</td>
+            <td>对话接通的时间</td>
+            <td>会话类型</td>
+            <td>接待对话的客服ID</td>
+            <td>接待对话的客服账号</td>
+            <td>接待对话的客服姓名</td>
+            <td>接待对话的客服的内部角色名称</td>
+            <td>对话入口</td>
+            <td>对话记录的ID</td>
+            <td>访客等待时长</td>
+            <td>本次分配对话的分组ID</td>
+            <td>本次分配对话的分组名</td>
+            <td>满意度评价</td>
+            <td>评价维度</td>
+            <td>评价的内容</td>
+            <td>评价发生时，正在接待对话的客服ID</td>
+            <td>评价发生时，正在接待对话的客服账号</td>
+            <td>评价发生时，正在接待对话的客服姓名</td>
+            <td>对话评估主题</td>
+            <td>对话评估备注</td>
+            <td>对话结束时间</td>
+            <td>对话结束方式</td>
+            <td>通话时长</td>
+            <td>首次响应时长</td>
+            <td>平均响应时长</td>
+            <td>访客发送消息条数</td>
+            <td>客服发送消息条数</td>
+            <td>是否邀评</td>
+            <td>对话内容</td>
+            <td>客服ID</td>
+            <td>客服账</td>
+            <td>客服姓</td>
+            <td>所有者ID</td>
+            <td>所有者账号</td>
+            <td>所有者姓名</td>
+            <td>完全匹配数</td>
+            <td>精准匹配数</td>
+            <td>相似匹配数</td>
+            <td>未命中数</td>
+            <td>点击解决数</td>
+            <td>点击未解决数</td>
+        </tr>
+    </thead>
+    <tbody style="font-size:10px;">
+        <tr th:id="test-get" th:each="chatRecord : ${chatRecords}">
+            <td th:text="${chatRecord.id}"></td>
+            <td th:text="${chatRecord.createDateStr}"></td>
+            <td th:text="${chatRecord.createBy}"></td>
+            <td th:text="${chatRecord.updateDateStr}"></td>
+            <td th:text="${chatRecord.updateBy}"></td>
+            <td th:text="${chatRecord.companyId}"></td>
+            <td th:text="${chatRecord.chatRecordType}"></td>
+            <td th:text="${chatRecord.myData}"></td>
+            <td th:text="${chatRecord.chatStatus}"></td>
+            <td th:text="${chatRecord.isTransfer}"></td>
+            <td th:text="${chatRecord.uid}"></td>
+            <td th:text="${chatRecord.grade}"></td>
+            <td th:text="${chatRecord.category}"></td>
+            <td th:text="${chatRecord.name}"></td>
+            <td th:text="${chatRecord.nickName}"></td>
+            <td th:text="${chatRecord.gender}"></td>
+            <td th:text="${chatRecord.age}"></td>
+            <td th:text="${chatRecord.birthday}"></td>
+            <td th:text="${chatRecord.maritalStatus}"></td>
+            <td th:text="${chatRecord.phone}"></td>
+            <td th:text="${chatRecord.qq}"></td>
+            <td th:text="${chatRecord.wechat}"></td>
+            <td th:text="${chatRecord.email}"></td>
+            <td th:text="${chatRecord.nation}"></td>
+            <td th:text="${chatRecord.province}"></td>
+            <td th:text="${chatRecord.city}"></td>
+            <td th:text="${chatRecord.address}"></td>
+            <td th:text="${chatRecord.photo}"></td>
+            <td th:text="${chatRecord.memo}"></td>
+            <td th:text="${chatRecord.c1}"></td>
+            <td th:text="${chatRecord.c2}"></td>
+            <td th:text="${chatRecord.c3}"></td>
+            <td th:text="${chatRecord.c4}"></td>
+            <td th:text="${chatRecord.c5}"></td>
+            <td th:text="${chatRecord.c6}"></td>
+            <td th:text="${chatRecord.c7}"></td>
+            <td th:text="${chatRecord.c8}"></td>
+            <td th:text="${chatRecord.c9}"></td>
+            <td th:text="${chatRecord.c10}"></td>
+            <td th:text="${chatRecord.c11}"></td>
+            <td th:text="${chatRecord.c12}"></td>
+            <td th:text="${chatRecord.c13}"></td>
+            <td th:text="${chatRecord.c14}"></td>
+            <td th:text="${chatRecord.c15}"></td>
+            <td th:text="${chatRecord.c16}"></td>
+            <td th:text="${chatRecord.c17}"></td>
+            <td th:text="${chatRecord.c18}"></td>
+            <td th:text="${chatRecord.c19}"></td>
+            <td th:text="${chatRecord.c20}"></td>
+            <td th:text="${chatRecord.visitorEnterTime}"></td>
+            <td th:text="${chatRecord.visitorMedia}"></td>
+            <td th:text="${chatRecord.visitorType}"></td>
+            <td th:text="${chatRecord.mediaId}"></td>
+            <td th:text="${chatRecord.visitorId}"></td>
+            <td th:text="${chatRecord.visitorName}"></td>
+            <td th:text="${chatRecord.visitorPhoto}"></td>
+            <td th:text="${chatRecord.visitTimes}"></td>
+            <td th:text="${chatRecord.visitorLan}"></td>
+            <td th:text="${chatRecord.visitorIp}"></td>
+            <td th:text="${chatRecord.visitorCountry}"></td>
+            <td th:text="${chatRecord.visitorProvince}"></td>
+            <td th:text="${chatRecord.visitorCity}"></td>
+            <td th:text="${chatRecord.browserName}"></td>
+            <td th:text="${chatRecord.browserVersion}"></td>
+            <td th:text="${chatRecord.screenResolution}"></td>
+            <td th:text="${chatRecord.osName}"></td>
+            <td th:text="${chatRecord.osVersion}"></td>
+            <td th:text="${chatRecord.se}"></td>
+            <td th:text="${chatRecord.keyword}"></td>
+            <td th:text="${chatRecord.biddingWord}"></td>
+            <td th:text="${chatRecord.keywordType}"></td>
+            <td th:text="${chatRecord.referPage}"></td>
+            <td th:text="${chatRecord.firstTime}"></td>
+            <td th:text="${chatRecord.firstPage}"></td>
+            <td th:text="${chatRecord.firstPageTitle}"></td>
+            <td th:text="${chatRecord.firstPageAlias}"></td>
+            <td th:text="${chatRecord.lastChatTime}"></td>
+            <td th:text="${chatRecord.lastChatStaffId}"></td>
+            <td th:text="${chatRecord.lastChatStaffLogname}"></td>
+            <td th:text="${chatRecord.lastChatStaffName}"></td>
+            <td th:text="${chatRecord.routeId}"></td>
+            <td th:text="${chatRecord.routeName}"></td>
+            <td th:text="${chatRecord.styleId}"></td>
+            <td th:text="${chatRecord.styleName}"></td>
+            <td th:text="${chatRecord.routeChatDepartmentId}"></td>
+            <td th:text="${chatRecord.routeChatDepartmentName}"></td>
+            <td th:text="${chatRecord.chatPage}"></td>
+            <td th:text="${chatRecord.chatPageTitle}"></td>
+            <td th:text="${chatRecord.chatTimes}"></td>
+            <td th:text="${chatRecord.chatEvent}"></td>
+            <td th:text="${chatRecord.chatRequestTime}"></td>
+            <td th:text="${chatRecord.chatAnswerTime}"></td>
+            <td th:text="${chatRecord.chatType}"></td>
+            <td th:text="${chatRecord.chatStaffId}"></td>
+            <td th:text="${chatRecord.chatStaffLogname}"></td>
+            <td th:text="${chatRecord.chatStaffName}"></td>
+            <td th:text="${chatRecord.chatStaffRole}"></td>
+            <td th:text="${chatRecord.chatEntrance}"></td>
+            <td th:text="${chatRecord.chatRecordId}"></td>
+            <td th:text="${chatRecord.chatWaitTime}"></td>
+            <td th:text="${chatRecord.chatDepartmentId}"></td>
+            <td th:text="${chatRecord.chatDepartmentName}"></td>
+            <td th:text="${chatRecord.chatScore}"></td>
+            <td th:text="${chatRecord.scoreDimension}"></td>
+            <td th:text="${chatRecord.scoreSuggest}"></td>
+            <td th:text="${chatRecord.scoreChatStaffId}"></td>
+            <td th:text="${chatRecord.scoreChatStaffLogname}"></td>
+            <td th:text="${chatRecord.scoreChatStaffName}"></td>
+            <td th:text="${chatRecord.chatSubject}"></td>
+            <td th:text="${chatRecord.chatSubjectMemo}"></td>
+            <td th:text="${chatRecord.chatEndTime}"></td>
+            <td th:text="${chatRecord.chatEndType}"></td>
+            <td th:text="${chatRecord.chatTotalTime}"></td>
+            <td th:text="${chatRecord.firstAnswerTime}"></td>
+            <td th:text="${chatRecord.avgAnswerTime}"></td>
+            <td th:text="${chatRecord.visitorSendMsg}"></td>
+            <td th:text="${chatRecord.staffSendMsg}"></td>
+            <td th:text="${chatRecord.activelyinviteEvaluating}"></td>
+            <td th:utext="${chatRecord.chatContent}"></td>
+            <td th:text="${chatRecord.staffId}"></td>
+            <td th:text="${chatRecord.staffLogname}"></td>
+            <td th:text="${chatRecord.staffName}"></td>
+            <td th:text="${chatRecord.ownerId}"></td>
+            <td th:text="${chatRecord.ownerLogname}"></td>
+            <td th:text="${chatRecord.ownerName}"></td>
+            <td th:text="${chatRecord.perfectMatchs}"></td>
+            <td th:text="${chatRecord.exactMatchs}"></td>
+            <td th:text="${chatRecord.similarityMatchs}"></td>
+            <td th:text="${chatRecord.misMatchCount}"></td>
+            <td th:text="${chatRecord.solvedCount}"></td>
+            <td th:text="${chatRecord.unsolvedCount}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

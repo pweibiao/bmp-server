@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerSkillStatusMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerSkillStatus">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="skillStatus" column="skill_status" jdbcType="INTEGER"/>
+            <result property="skillId" column="skill_id" jdbcType="BIGINT"/>
+            <result property="skillName" column="skill_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`skill_status`,
+        `skill_id`,`skill_name`
+    </sql>
+
+    <update id="insertOrUpdate" parameterType="bmpServerSkillStatus">
+        <selectKey keyProperty="count" resultType="int" order="BEFORE">
+            SELECT COUNT(1) FROM `bmp_server_skill_status` WHERE `company_id` = #{e.companyId,jdbcType=VARCHAR} AND `skill_id` = #{e.skillId,jdbcType=BIGINT}
+        </selectKey>
+        <if test="count > 0">
+            UPDATE `bmp_server_skill_status`
+            <set>
+                <if test="e.updateDate != null">
+                    `update_date` = #{e.updateDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.updateBy != null">
+                    `update_by` = #{e.updateBy,jdbcType=VARCHAR},
+                </if>
+                <if test="e.skillStatus != null">
+                    `skill_status` = #{e.skillStatus,jdbcType=INTEGER},
+                </if>
+                <if test="e.skillName != null">
+                    `skill_name` = #{e.skillName,jdbcType=VARCHAR},
+                </if>
+            </set>
+            WHERE `company_id` = #{e.companyId,jdbcType=VARCHAR}
+            AND `skill_id` = #{e.skillId,jdbcType=BIGINT}
+        </if>
+        <if test="count == 0">
+            INSERT INTO
+            `bmp_server_skill_status` (`id`,`create_date`,`create_by`,`company_id`, `skill_status`, `skill_id`, `skill_name`)
+            VALUES
+            (#{e.id,jdbcType=VARCHAR},#{e.createDate,jdbcType=TIMESTAMP},#{e.createBy,jdbcType=VARCHAR},#{e.companyId,jdbcType=VARCHAR}, #{e.skillStatus,jdbcType=INTEGER}, #{e.skillId,jdbcType=BIGINT}, #{e.skillName,jdbcType=VARCHAR})
+        </if>
+    </update>
+
+</mapper>

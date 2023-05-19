@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerTicketRecordContentMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerTicketRecordContent">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="jobId" column="job_id" jdbcType="BIGINT"/>
+            <result property="jobAttribute" column="job_Attribute" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="replyType" column="reply_type" jdbcType="INTEGER"/>
+            <result property="priority" column="priority" jdbcType="INTEGER"/>
+            <result property="jobType" column="job_type" jdbcType="INTEGER"/>
+            <result property="topicId" column="topic_id" jdbcType="BIGINT"/>
+            <result property="topicName" column="topic_name" jdbcType="VARCHAR"/>
+            <result property="distributeStaffId" column="distribute_staff_id" jdbcType="BIGINT"/>
+            <result property="distributeStaffName" column="distribute_staff_name" jdbcType="VARCHAR"/>
+            <result property="distributeStaffRole" column="distribute_staff_role" jdbcType="VARCHAR"/>
+            <result property="distributeStaffLogname" column="distribute_staff_logname" jdbcType="VARCHAR"/>
+            <result property="updaterType" column="updater_type" jdbcType="INTEGER"/>
+            <result property="updaterId" column="updater_id" jdbcType="VARCHAR"/>
+            <result property="updaterName" column="updater_name" jdbcType="VARCHAR"/>
+            <result property="replyContent" column="reply_content" jdbcType="VARCHAR"/>
+            <result property="replyEmail" column="reply_email" jdbcType="VARCHAR"/>
+            <result property="replyPhone" column="reply_phone" jdbcType="VARCHAR"/>
+            <result property="t1" column="t1" jdbcType="VARCHAR"/>
+            <result property="t2" column="t2" jdbcType="VARCHAR"/>
+            <result property="t3" column="t3" jdbcType="VARCHAR"/>
+            <result property="t4" column="t4" jdbcType="VARCHAR"/>
+            <result property="t5" column="t5" jdbcType="VARCHAR"/>
+            <result property="t6" column="t6" jdbcType="VARCHAR"/>
+            <result property="t7" column="t7" jdbcType="VARCHAR"/>
+            <result property="t8" column="t8" jdbcType="VARCHAR"/>
+            <result property="t9" column="t9" jdbcType="VARCHAR"/>
+            <result property="t10" column="t10" jdbcType="VARCHAR"/>
+            <result property="t11" column="t11" jdbcType="VARCHAR"/>
+            <result property="t12" column="t12" jdbcType="VARCHAR"/>
+            <result property="t13" column="t13" jdbcType="VARCHAR"/>
+            <result property="t14" column="t14" jdbcType="VARCHAR"/>
+            <result property="t15" column="t15" jdbcType="VARCHAR"/>
+            <result property="t16" column="t16" jdbcType="VARCHAR"/>
+            <result property="t17" column="t17" jdbcType="VARCHAR"/>
+            <result property="t18" column="t18" jdbcType="VARCHAR"/>
+            <result property="t19" column="t19" jdbcType="VARCHAR"/>
+            <result property="t20" column="t20" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`job_id`,
+        `job_Attribute`,`status`,`reply_type`,
+        `priority`,`job_type`,`topic_id`,
+        `topic_name`,`distribute_staff_id`,`distribute_staff_name`,
+        `distribute_staff_role`,`distribute_staff_logname`,`updater_type`,
+        `updater_id`,`updater_name`,`reply_content`,
+        `reply_email`,`reply_phone`,`t1`,
+        `t2`,`t3`,`t4`,
+        `t5`,`t6`,`t7`,
+        `t8`,`t9`,`t10`,
+        `t11`,`t12`,`t13`,
+        `t14`,`t15`,`t16`,
+        `t17`,`t18`,`t19`,
+        `t20`
+    </sql>
+</mapper>

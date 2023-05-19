@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerCrmDataMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerCrmData">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="visitorId" column="visitor_id" jdbcType="VARCHAR"/>
+            <result property="crmStatus" column="crm_status" jdbcType="VARCHAR"/>
+            <result property="createStaffId" column="create_staff_id" jdbcType="BIGINT"/>
+            <result property="createStaffLogname" column="create_staff_logname" jdbcType="VARCHAR"/>
+            <result property="createStaffName" column="create_staff_name" jdbcType="VARCHAR"/>
+            <result property="createCrmDate" column="create_crm_date" jdbcType="TIMESTAMP"/>
+            <result property="updateStaffId" column="update_staff_id" jdbcType="BIGINT"/>
+            <result property="updateStaffLogname" column="update_staff_logname" jdbcType="VARCHAR"/>
+            <result property="updateStaffName" column="update_staff_name" jdbcType="VARCHAR"/>
+            <result property="updateCrmDate" column="update_crm_date" jdbcType="TIMESTAMP"/>
+            <result property="distributeStaffId" column="distribute_staff_id" jdbcType="BIGINT"/>
+            <result property="distributeStaffLogname" column="distribute_staff_logname" jdbcType="VARCHAR"/>
+            <result property="distributeStaffName" column="distribute_staff_name" jdbcType="VARCHAR"/>
+            <result property="distributeCrmDate" column="distribute_crm_date" jdbcType="TIMESTAMP"/>
+            <result property="category" column="category" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="INTEGER"/>
+            <result property="age" column="age" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="maritalStatus" column="marital_status" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="qq" column="qq" jdbcType="VARCHAR"/>
+            <result property="wechat" column="wechat" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="nation" column="nation" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="photo" column="photo" jdbcType="VARCHAR"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="c1" column="c1" jdbcType="VARCHAR"/>
+            <result property="c2" column="c2" jdbcType="VARCHAR"/>
+            <result property="c3" column="c3" jdbcType="VARCHAR"/>
+            <result property="c4" column="c4" jdbcType="VARCHAR"/>
+            <result property="c5" column="c5" jdbcType="VARCHAR"/>
+            <result property="c6" column="c6" jdbcType="VARCHAR"/>
+            <result property="c7" column="c7" jdbcType="VARCHAR"/>
+            <result property="c8" column="c8" jdbcType="VARCHAR"/>
+            <result property="c9" column="c9" jdbcType="VARCHAR"/>
+            <result property="c10" column="c10" jdbcType="VARCHAR"/>
+            <result property="c11" column="c11" jdbcType="VARCHAR"/>
+            <result property="c12" column="c12" jdbcType="VARCHAR"/>
+            <result property="c13" column="c13" jdbcType="VARCHAR"/>
+            <result property="c14" column="c14" jdbcType="VARCHAR"/>
+            <result property="c15" column="c15" jdbcType="VARCHAR"/>
+            <result property="c16" column="c16" jdbcType="VARCHAR"/>
+            <result property="c17" column="c17" jdbcType="VARCHAR"/>
+            <result property="c18" column="c18" jdbcType="VARCHAR"/>
+            <result property="c19" column="c19" jdbcType="VARCHAR"/>
+            <result property="c20" column="c20" jdbcType="VARCHAR"/>
+            <result property="ownerId" column="owner_id" jdbcType="BIGINT"/>
+            <result property="ownerLogname" column="owner_logname" jdbcType="VARCHAR"/>
+            <result property="ownerName" column="owner_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`visitor_id`,
+        `crm_status`,`create_staff_id`,`create_staff_logname`,
+        `create_staff_name`,`create_crm_date`,`update_staff_id`,
+        `update_staff_logname`,`update_staff_name`,`update_crm_date`,
+        `distribute_staff_id`,`distribute_staff_logname`,`distribute_staff_name`,
+        `distribute_crm_date`,`category`,`name`,
+        `nick_name`,`gender`,`age`,
+        `birthday`,`marital_status`,`phone`,
+        `qq`,`wechat`,`email`,
+        `nation`,`province`,`city`,
+        `address`,`photo`,`memo`,
+        `c1`,`c2`,`c3`,
+        `c4`,`c5`,`c6`,
+        `c7`,`c8`,`c9`,
+        `c10`,`c11`,`c12`,
+        `c13`,`c14`,`c15`,
+        `c16`,`c17`,`c18`,
+        `c19`,`c20`,`owner_id`,
+        `owner_logname`,`owner_name`
+    </sql>
+
+
+    <update id="insertOrUpdate" parameterType="bmpServerCrmData">
+        <selectKey keyProperty="count" resultType="int" order="BEFORE">
+            SELECT COUNT(1) FROM `bmp_server_crm_data` WHERE id = #{e.id,jdbcType=VARCHAR}
+        </selectKey>
+        <if test="count > 0">
+            UPDATE `bmp_server_crm_data`
+            <set>
+                <if test="e.updateDate != null">
+                    `update_date` = #{e.updateDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.updateBy != null and e.updateBy != ''">
+                    `update_by` = #{e.updateBy,jdbcType=VARCHAR},
+                </if>
+                <if test="e.companyId != null and e.companyId != ''">
+                    `company_id` = #{e.companyId,jdbcType=VARCHAR},
+                </if>
+                <if test="e.visitorId != null and e.visitorId != ''">
+                    `visitor_id` = #{e.visitorId,jdbcType=VARCHAR},
+                </if>
+                <if test="e.crmStatus != null and e.crmStatus != ''">
+                    `crm_status` = #{e.crmStatus,jdbcType=VARCHAR},
+                </if>
+                <if test="e.updateStaffId != null">
+                    `update_staff_id` = #{e.updateStaffId,jdbcType=BIGINT},
+                </if>
+                <if test="e.updateStaffLogname != null and e.updateStaffLogname != ''">
+                    `update_staff_logname` = #{e.updateStaffLogname,jdbcType=VARCHAR},
+                </if>
+                <if test="e.updateStaffName != null and e.updateStaffName != ''">
+                    `update_staff_name` = #{e.updateStaffName,jdbcType=VARCHAR},
+                </if>
+                <if test="e.updateCrmDate != null">
+                    `update_crm_date` = #{e.updateCrmDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.distributeStaffId != null">
+                    `distribute_staff_id` = #{e.distributeStaffId,jdbcType=BIGINT},
+                </if>
+                <if test="e.distributeStaffLogname != null and e.distributeStaffLogname != ''">
+                    `distribute_staff_logname` = #{e.distributeStaffLogname,jdbcType=VARCHAR},
+                </if>
+                <if test="e.distributeStaffName != null and e.distributeStaffName != ''">
+                    `distribute_staff_name` = #{e.distributeStaffName,jdbcType=VARCHAR},
+                </if>
+                <if test="e.distributeCrmDate != null">
+                    `distribute_crm_date` = #{e.distributeCrmDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.category != null and e.category != ''">
+                    `category` = #{e.category,jdbcType=VARCHAR},
+                </if>
+                <if test="e.name != null and e.name != ''">
+                    `name` = #{e.name,jdbcType=VARCHAR},
+                </if>
+                <if test="e.nickName != null and e.nickName != ''">
+                    `nick_name` = #{e.nickName,jdbcType=VARCHAR},
+                </if>
+                <if test="e.gender != null">
+                    `gender` = #{e.gender,jdbcType=INTEGER},
+                </if>
+                <if test="e.age != null and e.age != ''">
+                    `age` = #{e.age,jdbcType=VARCHAR},
+                </if>
+                <if test="e.birthday != null and e.birthday != ''">
+                    `birthday` = #{e.birthday,jdbcType=VARCHAR},
+                </if>
+                <if test="e.maritalStatus != null">
+                    `marital_status` = #{e.maritalStatus,jdbcType=INTEGER},
+                </if>
+                <if test="e.phone != null and e.phone != ''">
+                    `phone` = #{e.phone,jdbcType=VARCHAR},
+                </if>
+                <if test="e.qq != null and e.qq != ''">
+                    `qq` = #{e.qq,jdbcType=VARCHAR},
+                </if>
+                <if test="e.wechat != null and e.wechat != ''">
+                    `wechat` = #{e.wechat,jdbcType=VARCHAR},
+                </if>
+                <if test="e.email != null and e.email != ''">
+                    `email` = #{e.email,jdbcType=VARCHAR},
+                </if>
+                <if test="e.nation != null and e.nation != ''">
+                    `nation` = #{e.nation,jdbcType=VARCHAR},
+                </if>
+                <if test="e.province != null and e.province != ''">
+                    `province` = #{e.province,jdbcType=VARCHAR},
+                </if>
+                <if test="e.city != null and e.city != ''">
+                    `city` = #{e.city,jdbcType=VARCHAR},
+                </if>
+                <if test="e.address != null and e.address != ''">
+                    `address` = #{e.address,jdbcType=VARCHAR},
+                </if>
+                <if test="e.photo != null and e.photo != ''">
+                    `photo` = #{e.photo,jdbcType=VARCHAR},
+                </if>
+                <if test="e.memo != null and e.memo != ''">
+                    `memo` = #{e.memo,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c1 != null and e.c1 != ''">
+                    `c1` = #{e.c1,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c2 != null and e.c2 != ''">
+                    `c2` = #{e.c2,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c3 != null and e.c3 != ''">
+                    `c3` = #{e.c3,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c4 != null and e.c4 != ''">
+                    `c4` = #{e.c4,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c5 != null and e.c5 != ''">
+                    `c5` = #{e.c5,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c6 != null and e.c6 != ''">
+                    `c6` = #{e.c6,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c7 != null and e.c7 != ''">
+                    `c7` = #{e.c7,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c8 != null and e.c8 != ''">
+                    `c8` = #{e.c8,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c9 != null and e.c9 != ''">
+                    `c9` = #{e.c9,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c10 != null and e.c10 != ''">
+                    `c10` = #{e.c10,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c11 != null and e.c11 != ''">
+                    `c11` = #{e.c11,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c12 != null and e.c12 != ''">
+                    `c12` = #{e.c12,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c13 != null and e.c13 != ''">
+                    `c13` = #{e.c13,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c14 != null and e.c14 != ''">
+                    `c14` = #{e.c14,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c15 != null and e.c15 != ''">
+                    `c15` = #{e.c15,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c16 != null and e.c16 != ''">
+                    `c16` = #{e.c16,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c17 != null and e.c17 != ''">
+                    `c17` = #{e.c17,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c18 != null and e.c18 != ''">
+                    `c18` = #{e.c18,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c19 != null and e.c19 != ''">
+                    `c19` = #{e.c19,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c20 != null and e.c20 != ''">
+                    `c20` = #{e.c20,jdbcType=VARCHAR},
+                </if>
+                <if test="e.ownerId != null">
+                    `owner_id` = #{e.ownerId,jdbcType=BIGINT},
+                </if>
+                <if test="e.ownerLogname != null and e.ownerLogname != ''">
+                    `owner_logname` = #{e.ownerLogname,jdbcType=VARCHAR},
+                </if>
+                <if test="e.ownerName != null and e.ownerName != ''">
+                    `owner_name` = #{e.ownerName,jdbcType=VARCHAR},
+                </if>
+            </set>
+            WHERE `id` = #{e.id,jdbcType=VARCHAR}
+        </if>
+        <if test="count == 0">
+            INSERT INTO
+            `bmp_server_crm_data`
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                `id`, `company_id`, `create_date`, `create_by`,
+                <if test="e.visitorId != null and e.visitorId != ''">
+                    `visitor_id`,
+                </if>
+                <if test="e.crmStatus != null and e.crmStatus != ''">
+                    `crm_status`,
+                </if>
+                <if test="e.createStaffId != null">
+                    `create_staff_id`,
+                </if>
+                <if test="e.createStaffLogname != null and e.createStaffLogname != ''">
+                    `create_staff_logname`,
+                </if>
+                <if test="e.createStaffName != null and e.createStaffName != ''">
+                    `create_staff_name`,
+                </if>
+                <if test="e.createCrmDate != null">
+                    `create_crm_date`,
+                </if>
+                <if test="e.category != null and e.category != ''">
+                    `category`,
+                </if>
+                <if test="e.name != null and e.name != ''">
+                    `name`,
+                </if>
+                <if test="e.nickName != null and e.nickName != ''">
+                    `nick_name`,
+                </if>
+                <if test="e.gender != null">
+                    `gender`,
+                </if>
+                <if test="e.age != null and e.age != ''">
+                    `age`,
+                </if>
+                <if test="e.birthday != null and e.birthday != ''">
+                    `birthday`,
+                </if>
+                <if test="e.maritalStatus != null">
+                    `marital_status`,
+                </if>
+                <if test="e.phone != null and e.phone != ''">
+                    `phone`,
+                </if>
+                <if test="e.qq != null and e.qq != ''">
+                    `qq`,
+                </if>
+                <if test="e.wechat != null and e.wechat != ''">
+                    `wechat`,
+                </if>
+                <if test="e.email != null and e.email != ''">
+                    `email`,
+                </if>
+                <if test="e.nation != null and e.nation != ''">
+                    `nation`,
+                </if>
+                <if test="e.province != null and e.province != ''">
+                    `province`,
+                </if>
+                <if test="e.city != null and e.city != ''">
+                    `city`,
+                </if>
+                <if test="e.address != null and e.address != ''">
+                    `address`,
+                </if>
+                <if test="e.photo != null and e.photo != ''">
+                    `photo`,
+                </if>
+                <if test="e.memo != null and e.memo != ''">
+                    `memo`,
+                </if>
+                <if test="e.c1 != null and e.c1 != ''">
+                    `c1`,
+                </if>
+                <if test="e.c2 != null and e.c2 != ''">
+                    `c2`,
+                </if>
+                <if test="e.c3 != null and e.c3 != ''">
+                    `c3`,
+                </if>
+                <if test="e.c4 != null and e.c4 != ''">
+                    `c4`,
+                </if>
+                <if test="e.c5 != null and e.c5 != ''">
+                    `c5`,
+                </if>
+                <if test="e.c6 != null and e.c6 != ''">
+                    `c6`,
+                </if>
+                <if test="e.c7 != null and e.c7 != ''">
+                    `c7`,
+                </if>
+                <if test="e.c8 != null and e.c8 != ''">
+                    `c8`,
+                </if>
+                <if test="e.c9 != null and e.c9 != ''">
+                    `c9`,
+                </if>
+                <if test="e.c10 != null and e.c10 != ''">
+                    `c10`,
+                </if>
+                <if test="e.c11 != null and e.c11 != ''">
+                    `c11`,
+                </if>
+                <if test="e.c12 != null and e.c12 != ''">
+                    `c12`,
+                </if>
+                <if test="e.c13 != null and e.c13 != ''">
+                    `c13`,
+                </if>
+                <if test="e.c14 != null and e.c14 != ''">
+                    `c14`,
+                </if>
+                <if test="e.c15 != null and e.c15 != ''">
+                    `c15`,
+                </if>
+                <if test="e.c16 != null and e.c16 != ''">
+                    `c16`,
+                </if>
+                <if test="e.c17 != null and e.c17 != ''">
+                    `c17`,
+                </if>
+                <if test="e.c18 != null and e.c18 != ''">
+                    `c18`,
+                </if>
+                <if test="e.c19 != null and e.c19 != ''">
+                    `c19`,
+                </if>
+                <if test="e.c20 != null and e.c20 != ''">
+                    `c20`,
+                </if>
+            </trim>
+            <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+                #{e.id,jdbcType=VARCHAR}, #{e.companyId,jdbcType=VARCHAR}, #{e.createDate,jdbcType=TIMESTAMP}, #{e.createBy,jdbcType=VARCHAR},
+                <if test="e.visitorId != null and e.visitorId != ''">
+                    #{e.visitorId,jdbcType=VARCHAR},
+                </if>
+                <if test="e.crmStatus != null and e.crmStatus != ''">
+                    #{e.crmStatus,jdbcType=VARCHAR},
+                </if>
+                <if test="e.createStaffId != null">
+                    #{e.createStaffId,jdbcType=BIGINT},
+                </if>
+                <if test="e.createStaffLogname != null and e.createStaffLogname != ''">
+                    #{e.createStaffLogname,jdbcType=VARCHAR},
+                </if>
+                <if test="e.createStaffName != null and e.createStaffName != ''">
+                    #{e.createStaffName,jdbcType=VARCHAR},
+                </if>
+                <if test="e.createCrmDate != null">
+                    #{e.createCrmDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.category != null and e.category != ''">
+                    #{e.category,jdbcType=VARCHAR},
+                </if>
+                <if test="e.name != null and e.name != ''">
+                    #{e.name,jdbcType=VARCHAR},
+                </if>
+                <if test="e.nickName != null and e.nickName != ''">
+                    #{e.nickName,jdbcType=VARCHAR},
+                </if>
+                <if test="e.gender != null">
+                    #{e.gender,jdbcType=INTEGER},
+                </if>
+                <if test="e.age != null and e.age != ''">
+                    #{e.age,jdbcType=VARCHAR},
+                </if>
+                <if test="e.birthday != null and e.birthday != ''">
+                    #{e.birthday,jdbcType=VARCHAR},
+                </if>
+                <if test="e.maritalStatus != null">
+                    #{e.maritalStatus,jdbcType=INTEGER},
+                </if>
+                <if test="e.phone != null and e.phone != ''">
+                    #{e.phone,jdbcType=VARCHAR},
+                </if>
+                <if test="e.qq != null and e.qq != ''">
+                    #{e.qq,jdbcType=VARCHAR},
+                </if>
+                <if test="e.wechat != null and e.wechat != ''">
+                    #{e.wechat,jdbcType=VARCHAR},
+                </if>
+                <if test="e.email != null and e.email != ''">
+                    #{e.email,jdbcType=VARCHAR},
+                </if>
+                <if test="e.nation != null and e.nation != ''">
+                    #{e.nation,jdbcType=VARCHAR},
+                </if>
+                <if test="e.province != null and e.province != ''">
+                    #{e.province,jdbcType=VARCHAR},
+                </if>
+                <if test="e.city != null and e.city != ''">
+                    #{e.city,jdbcType=VARCHAR},
+                </if>
+                <if test="e.address != null and e.address != ''">
+                    #{e.address,jdbcType=VARCHAR},
+                </if>
+                <if test="e.photo != null and e.photo != ''">
+                    #{e.photo,jdbcType=VARCHAR},
+                </if>
+                <if test="e.memo != null and e.memo != ''">
+                    #{e.memo,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c1 != null and e.c1 != ''">
+                    #{e.c1,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c2 != null and e.c2 != ''">
+                    #{e.c2,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c3 != null and e.c3 != ''">
+                    #{e.c3,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c4 != null and e.c4 != ''">
+                    #{e.c4,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c5 != null and e.c5 != ''">
+                    #{e.c5,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c6 != null and e.c6 != ''">
+                    #{e.c6,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c7 != null and e.c7 != ''">
+                    #{e.c7,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c8 != null and e.c8 != ''">
+                    #{e.c8,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c9 != null and e.c9 != ''">
+                    #{e.c9,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c10 != null and e.c10 != ''">
+                    #{e.c10,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c11 != null and e.c11 != ''">
+                    #{e.c11,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c12 != null and e.c12 != ''">
+                    #{e.c12,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c13 != null and e.c13 != ''">
+                    #{e.c13,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c14 != null and e.c14 != ''">
+                    #{e.c14,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c15 != null and e.c15 != ''">
+                    #{e.c15,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c16 != null and e.c16 != ''">
+                    #{e.c16,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c17 != null and e.c17 != ''">
+                    #{e.c17,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c18 != null and e.c18 != ''">
+                    #{e.c18,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c19 != null and e.c19 != ''">
+                    #{e.c19,jdbcType=VARCHAR},
+                </if>
+                <if test="e.c20 != null and e.c20 != ''">
+                    #{e.c20,jdbcType=VARCHAR},
+                </if>
+            </trim>
+        </if>
+    </update>
+
+</mapper>

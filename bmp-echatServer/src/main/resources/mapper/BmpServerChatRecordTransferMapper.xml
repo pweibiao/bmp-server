@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerChatRecordTransferMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerChatRecordTransfer">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="chatRecordId" column="chat_record_id" jdbcType="VARCHAR"/>
+            <result property="transferTime" column="transfer_time" jdbcType="TIMESTAMP"/>
+            <result property="fromStaffId" column="from_staff_id" jdbcType="VARCHAR"/>
+            <result property="fromStaffLogname" column="from_staff_logname" jdbcType="VARCHAR"/>
+            <result property="fromStaffName" column="from_staff_name" jdbcType="VARCHAR"/>
+            <result property="toStaffId" column="to_staff_id" jdbcType="VARCHAR"/>
+            <result property="toStaffLogname" column="to_staff_logname" jdbcType="VARCHAR"/>
+            <result property="toStaffName" column="to_staff_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_date,create_by,
+        update_date,update_by,disable,
+        del_flag,company_id,chat_record_id,
+        transfer_time,from_staff_id,from_staff_logname,
+        from_staff_name,to_staff_id,to_staff_logname,
+        to_staff_name
+    </sql>
+</mapper>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.common.mapper.SystemBaseConfigMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.common.domain.SystemBaseConfig">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="dataName" column="data_name" jdbcType="VARCHAR"/>
+            <result property="dataValue" column="data_value" jdbcType="VARCHAR"/>
+            <result property="dataType" column="data_type" jdbcType="VARCHAR"/>
+            <result property="mainCode" column="main_code" jdbcType="VARCHAR"/>
+            <result property="subCode" column="sub_code" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`data_name`,`data_value`,
+        `data_type`,`main_code`,`sub_code`,
+        `remarks`,`content`
+    </sql>
+
+    <insert id="insertOrUpdate" parameterType="SystemBaseConfig">
+        INSERT INTO `system_base_config`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `id`,`create_date`,`create_by`, `data_name`,
+            <if test="item.dataValue != null and item.dataValue != ''">
+                `data_value`,
+            </if>
+            <if test="item.dataType != null and item.dataType != ''">
+                `data_type`,
+            </if>
+            <if test="item.mainCode != null and item.mainCode != ''">
+                `main_code`,
+            </if>
+            <if test="item.subCode != null and item.subCode != ''">
+                `sub_code`,
+            </if>
+            <if test="item.remarks != null and item.remarks != ''">
+                `remarks`,
+            </if>
+            <if test="item.content != null and item.content != ''">
+                `content`,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            #{item.id,jdbcType=VARCHAR}, #{item.createDate,jdbcType=TIMESTAMP},
+            #{item.createBy,jdbcType=VARCHAR}, #{item.dataName,jdbcType=VARCHAR},
+            <if test="item.dataValue != null and item.dataValue != ''">
+                #{item.dataValue,jdbcType=VARCHAR},
+            </if>
+            <if test="item.dataType != null and item.dataType != ''">
+                #{item.dataType,jdbcType=VARCHAR},
+            </if>
+            <if test="item.mainCode != null and item.mainCode != ''">
+                #{item.mainCode,jdbcType=VARCHAR},
+            </if>
+            <if test="item.subCode != null and item.subCode != ''">
+                #{item.subCode,jdbcType=VARCHAR},
+            </if>
+            <if test="item.remarks != null and item.remarks != ''">
+                #{item.remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="item.content != null and item.content != ''">
+                #{item.content,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        <trim prefix="ON DUPLICATE KEY UPDATE" suffixOverrides=",">
+            <if test="item.dataValue != null and item.dataValue != ''">
+                `data_value` = VALUES(`data_value`),
+            </if>
+            <if test="item.dataType != null and item.dataType != ''">
+                `data_type` = VALUES(`data_type`),
+            </if>
+            <if test="item.mainCode != null and item.mainCode != ''">
+                `main_code` = VALUES(`main_code`),
+            </if>
+            <if test="item.subCode != null and item.subCode != ''">
+                `sub_code` = VALUES(`sub_code`),
+            </if>
+            <if test="item.remarks != null and item.remarks != ''">
+                `remarks` = VALUES(`remarks`),
+            </if>
+            <if test="item.content != null and item.content != ''">
+                `content` = VALUES(`content`),
+            </if>
+        </trim>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" parameterType="SystemBaseConfig">
+        <foreach collection="list" index="index" item="item" separator=";">
+            INSERT INTO `system_base_config`
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                `id`,`create_date`,`create_by`, `data_name`,
+                <if test="item.dataValue != null and item.dataValue != ''">
+                    `data_value`,
+                </if>
+                <if test="item.dataType != null and item.dataType != ''">
+                    `data_type`,
+                </if>
+                <if test="item.mainCode != null and item.mainCode != ''">
+                    `main_code`,
+                </if>
+                <if test="item.subCode != null and item.subCode != ''">
+                    `sub_code`,
+                </if>
+                <if test="item.remarks != null and item.remarks != ''">
+                    `remarks`,
+                </if>
+                <if test="item.content != null and item.content != ''">
+                    `content`,
+                </if>
+            </trim>
+            <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+                #{item.id,jdbcType=VARCHAR}, #{item.createDate,jdbcType=TIMESTAMP},
+                #{item.createBy,jdbcType=VARCHAR}, #{item.dataName,jdbcType=VARCHAR},
+                <if test="item.dataValue != null and item.dataValue != ''">
+                    #{item.dataValue,jdbcType=VARCHAR},
+                </if>
+                <if test="item.dataType != null and item.dataType != ''">
+                    #{item.dataType,jdbcType=VARCHAR},
+                </if>
+                <if test="item.mainCode != null and item.mainCode != ''">
+                    #{item.mainCode,jdbcType=VARCHAR},
+                </if>
+                <if test="item.subCode != null and item.subCode != ''">
+                    #{item.subCode,jdbcType=VARCHAR},
+                </if>
+                <if test="item.remarks != null and item.remarks != ''">
+                    #{item.remarks,jdbcType=VARCHAR},
+                </if>
+                <if test="item.content != null and item.content != ''">
+                    #{item.content,jdbcType=VARCHAR},
+                </if>
+            </trim>
+            <trim prefix="ON DUPLICATE KEY UPDATE" suffixOverrides=",">
+                <if test="item.dataValue != null and item.dataValue != ''">
+                    `data_value` = VALUES(`data_value`),
+                </if>
+                <if test="item.dataType != null and item.dataType != ''">
+                    `data_type` = VALUES(`data_type`),
+                </if>
+                <if test="item.mainCode != null and item.mainCode != ''">
+                    `main_code` = VALUES(`main_code`),
+                </if>
+                <if test="item.subCode != null and item.subCode != ''">
+                    `sub_code` = VALUES(`sub_code`),
+                </if>
+                <if test="item.remarks != null and item.remarks != ''">
+                    `remarks` = VALUES(`remarks`),
+                </if>
+                <if test="item.content != null and item.content != ''">
+                    `content` = VALUES(`content`),
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+</mapper>

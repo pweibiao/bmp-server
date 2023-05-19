@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbowred.echatServer.mapper.BmpServerRouteStatusMapper">
+
+    <resultMap id="BaseResultMap" type="com.rainbowred.echatServer.domain.BmpServerRouteStatus">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="disable" column="disable" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="VARCHAR"/>
+            <result property="routeStatus" column="route_status" jdbcType="INTEGER"/>
+            <result property="routeId" column="route_id" jdbcType="BIGINT"/>
+            <result property="routeName" column="route_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`create_date`,`create_by`,
+        `update_date`,`update_by`,`disable`,
+        `del_flag`,`company_id`,`route_status`,
+        `route_id`,`route_name`
+    </sql>
+
+
+    <update id="insertOrUpdate" parameterType="bmpServerRouteStatus">
+        <selectKey keyProperty="count" resultType="int" order="BEFORE">
+            SELECT COUNT(1) FROM `bmp_server_route_status` WHERE `company_id` = #{e.companyId,jdbcType=VARCHAR} AND `route_id` = #{e.routeId,jdbcType=BIGINT}
+        </selectKey>
+        <if test="count > 0">
+            UPDATE `bmp_server_route_status`
+            <set>
+                <if test="e.updateDate != null">
+                    `update_date` = #{e.updateDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="e.updateBy != null">
+                    `update_by` = #{e.updateBy,jdbcType=VARCHAR},
+                </if>
+                <if test="e.routeStatus != null">
+                    `route_status` = #{e.routeStatus,jdbcType=INTEGER},
+                </if>
+                <if test="e.routeName != null">
+                    `route_name` = #{e.routeName,jdbcType=VARCHAR},
+                </if>
+            </set>
+            WHERE `company_id` = #{e.companyId,jdbcType=VARCHAR}
+            AND `route_id` = #{e.routeId,jdbcType=BIGINT}
+        </if>
+        <if test="count == 0">
+            INSERT INTO
+            `bmp_server_route_status` (`id`,`create_date`,`create_by`,`company_id`,`route_status`,`route_id`,`route_name`)
+            VALUES
+            (#{e.id,jdbcType=VARCHAR},#{e.createDate,jdbcType=TIMESTAMP},#{e.createBy,jdbcType=VARCHAR},#{e.companyId,jdbcType=VARCHAR},#{e.routeStatus,jdbcType=INTEGER},#{e.routeId,jdbcType=BIGINT},#{e.routeName,jdbcType=VARCHAR})
+        </if>
+    </update>
+
+</mapper>

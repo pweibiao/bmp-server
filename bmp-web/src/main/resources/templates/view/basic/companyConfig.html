@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司配置</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>公司配置</h1>
+    </div>
+</head>
+
+<body>
+<h3>服务器交互与地址：https://apps.echatsoft.com/bmp/api/interaction</h3>
+<h1><a th:href="@{'/bmp/echatServer/data/apiLog/list'}">日志数据</a></h1>
+<h1><a th:href="@{'/bmp/basic/thy/companyConfig/list'}">点击刷新</a></h1>
+<h1><a th:href="@{'/bmp/basic/thy/companyConfig/add'}">添加公司配置</a></h1>
+<table border="1">
+    <colgroup >
+        <col width="125">
+        <col width="200">
+        <col width="300">
+        <col width="400">
+        <col width="125">
+        <col width="300">
+        <col width="300">
+        <col width="300">
+        <col width="125">
+        <col width="125">
+    </colgroup>
+    <thead align="center">
+        <tr>
+            <td>公司ID</td>
+            <td>公司名称</td>
+            <td>appId</td>
+            <td>AESKey</td>
+            <td>Token</td>
+            <td>服务端地址</td>
+            <td>访客端地址</td>
+            <td>服务器接口地址</td>
+            <td>日志保留天数</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody style="width:100%; white-space:normal; word-wrap:break-word; word-break:break-all; white-space: pre-wrap;font-size:10px;" align="center">
+        <tr th:id="test-get" th:each="company : ${companyList}">
+            <td th:text="${company.companyId}"></td>
+            <td th:text="${company.name}"></td>
+            <td th:text="${company.appid}"></td>
+            <td th:text="${company.aeskey}"></td>
+            <td th:text="${company.token}"></td>
+            <td th:text="${company.serverUrl}"></td>
+            <td th:text="${company.visitorUrl}"></td>
+            <td th:text="${company.apiUrl}"></td>
+            <td th:text="${company.logData}"></td>
+            <td>
+                <a style="font-size: 15px" th:href="@{'/bmp/basic/thy/companyConfig/update?id=' + ${company.id}}">编辑</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

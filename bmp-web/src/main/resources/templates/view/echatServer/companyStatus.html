@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司状态</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>公司状态</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}">点击刷新</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+<table border="1">
+    <colgroup>
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+    </colgroup>
+    <thead align="center">
+        <tr>
+            <td>唯一ID</td>
+            <td>创建时间</td>
+            <td>创建人</td>
+            <td>更新时间</td>
+            <td>更新人</td>
+            <td>公司ID</td>
+            <td>公司状态</td>
+        </tr>
+    </thead>
+    <tbody align="center" style="font-size:10px;">
+        <tr th:id="test-get" th:each="companyStatus : ${companyStatuses}">
+            <td th:text="${companyStatus.id}"></td>
+            <td th:text="${companyStatus.createDateStr}"></td>
+            <td th:text="${companyStatus.createBy}"></td>
+            <td th:text="${companyStatus.updateDateStr}"></td>
+            <td th:text="${companyStatus.updateBy}"></td>
+            <td th:text="${companyStatus.companyId}"></td>
+            <td th:text="${companyStatus.companyStatus}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
