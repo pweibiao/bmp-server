@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工单数据</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>工单数据</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${companyId}}"> 浏览数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${companyId}}"> 工单数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${companyId}}"> 客户数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${companyId}}">点击刷新</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+<table border="1" align="center">
+    <colgroup>
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+    </colgroup>
+    <thead>
+        <tr>
+            <td>唯一ID</td>
+            <td>创建时间</td>
+            <td>创建人</td>
+            <td>更新时间</td>
+            <td>更新人</td>
+            <td>公司ID</td>
+            <td>开发者自定义扩展数据</td>
+            <td>工单ID</td>
+            <td>工单属性</td>
+            <td>访客进入网站的时间</td>
+            <td>访客端的媒介</td>
+            <td>访客类型</td>
+            <td>自定义渠道的渠道ID</td>
+            <td>访客ID</td>
+            <td>访客的姓名</td>
+            <td>访客的头像地址</td>
+            <td>访客的来访次数</td>
+            <td>访客的浏览器语言</td>
+            <td>访客的来源IP</td>
+            <td>访客的来源国家</td>
+            <td>访客的来源省份</td>
+            <td>访客的来源城市</td>
+            <td>访客的浏览器名称</td>
+            <td>访客的浏览器版本号</td>
+            <td>访客电脑的分辨率</td>
+            <td>访客电脑的操作系统</td>
+            <td>访客电脑的操作系统版本</td>
+            <td>访客来源的搜索引擎</td>
+            <td>访客来源的关键词</td>
+            <td>推广词</td>
+            <td>关键字类型</td>
+            <td>访客进入网站的来源页</td>
+            <td>进入网站的时间</td>
+            <td>访客落地页面的URL</td>
+            <td>访客落地页面的标题</td>
+            <td>访客落地页面的别名</td>
+            <td>上次对话的时间</td>
+            <td>上次对话的客服ID.0：首次对话</td>
+            <td>上次对话的客服账号</td>
+            <td>上次对话的客服姓名</td>
+            <td>接入对话的路由ID</td>
+            <td>路由名称</td>
+            <td>路由所使用的样式ID</td>
+            <td>路由所使用样式的名称</td>
+            <td>本次分配对话的接待组ID</td>
+            <td>本地分配对话的接待组名称</td>
+            <td>工单标题</td>
+            <td>工单内容</td>
+            <td>工单主题ID</td>
+            <td>工单主题名称</td>
+            <td>请求者语言</td>
+            <td>请求者ID</td>
+            <td>请求者类型</td>
+            <td>请求者姓名</td>
+            <td>样式ID</td>
+            <td>工单类型</td>
+            <td>工单指派分组ID</td>
+            <td>工单指派分组</td>
+            <td>工单指派客服ID</td>
+            <td>工单指派客服姓名</td>
+            <td>工单指派客服角色名</td>
+            <td>工单指派客服账号</td>
+            <td>更新人类型</td>
+            <td>工单更新人ID</td>
+            <td>工单更新人姓名</td>
+            <td>工单跟踪人ID</td>
+            <td>工单跟踪人姓名</td>
+            <td>工单优先级</td>
+            <td>工单模版ID</td>
+            <td>工单状态</td>
+            <td>工单回复邮箱</td>
+            <td>工单回复电话</td>
+            <td>工单备注</td>
+            <td>工单附件信息，JSON字符串</td>
+            <td>CRM字段-客户ID</td>
+            <td>CRM字段-客户姓名</td>
+            <td>CRM字段-客户类别</td>
+            <td>CRM字段-客户昵称</td>
+            <td>CRM字段-客户性别</td>
+            <td>CRM字段-客户年龄</td>
+            <td>CRM字段-客户生日</td>
+            <td>CRM字段-客户婚姻状况</td>
+            <td>CRM字段-客户电话</td>
+            <td>CRM字段-客户qq</td>
+            <td>CRM字段-客户微信</td>
+            <td>CRM字段-客户邮箱</td>
+            <td>CRM字段-客户所在国家</td>
+            <td>CRM字段-客户所在省份</td>
+            <td>CRM字段-客户所在城市</td>
+            <td>CRM字段-客户地址</td>
+            <td>CRM字段-客户头像地址</td>
+            <td>CRM字段-备注</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>CRM自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>工单自定义字段</td>
+            <td>用户评价时间</td>
+            <td>评价满意度</td>
+            <td>访客评价备注内容</td>
+            <td>评价子项</td>
+        </tr>
+    </thead>
+    <tbody style="font-size:10px;">
+        <tr th:id="test-get" th:each="ticketRecord : ${ticketRecords}">
+            <td th:text="${ticketRecord.id}"></td>
+            <td th:text="${ticketRecord.createDateStr}"></td>
+            <td th:text="${ticketRecord.createBy}"></td>
+            <td th:text="${ticketRecord.updateDateStr}"></td>
+            <td th:text="${ticketRecord.updateBy}"></td>
+            <td th:text="${ticketRecord.companyId}"></td>
+            <td th:text="${ticketRecord.myData}"></td>
+            <td th:text="${ticketRecord.jobId}"></td>
+            <td th:text="${ticketRecord.jobAttribute}"></td>
+            <td th:text="${ticketRecord.visitorEnterTime}"></td>
+            <td th:text="${ticketRecord.visitorMedia}"></td>
+            <td th:text="${ticketRecord.visitorType}"></td>
+            <td th:text="${ticketRecord.mediaId}"></td>
+            <td th:text="${ticketRecord.visitorId}"></td>
+            <td th:text="${ticketRecord.visitorName}"></td>
+            <td th:text="${ticketRecord.visitorPhoto}"></td>
+            <td th:text="${ticketRecord.visitTimes}"></td>
+            <td th:text="${ticketRecord.visitorLan}"></td>
+            <td th:text="${ticketRecord.visitorIp}"></td>
+            <td th:text="${ticketRecord.visitorCountry}"></td>
+            <td th:text="${ticketRecord.visitorProvince}"></td>
+            <td th:text="${ticketRecord.visitorCity}"></td>
+            <td th:text="${ticketRecord.browserName}"></td>
+            <td th:text="${ticketRecord.browserVersion}"></td>
+            <td th:text="${ticketRecord.screenResolution}"></td>
+            <td th:text="${ticketRecord.osName}"></td>
+            <td th:text="${ticketRecord.osVersion}"></td>
+            <td th:text="${ticketRecord.se}"></td>
+            <td th:text="${ticketRecord.keyword}"></td>
+            <td th:text="${ticketRecord.biddingWord}"></td>
+            <td th:text="${ticketRecord.keywordType}"></td>
+            <td th:text="${ticketRecord.referPage}"></td>
+            <td th:text="${ticketRecord.firstTime}"></td>
+            <td th:text="${ticketRecord.firstPage}"></td>
+            <td th:text="${ticketRecord.firstPageTitle}"></td>
+            <td th:text="${ticketRecord.firstPageAlias}"></td>
+            <td th:text="${ticketRecord.lastChatTime}"></td>
+            <td th:text="${ticketRecord.lastChatStaffId}"></td>
+            <td th:text="${ticketRecord.lastChatStaffLogname}"></td>
+            <td th:text="${ticketRecord.lastChatStaffName}"></td>
+            <td th:text="${ticketRecord.routeId}"></td>
+            <td th:text="${ticketRecord.routeName}"></td>
+            <td th:text="${ticketRecord.routeStyleId}"></td>
+            <td th:text="${ticketRecord.styleName}"></td>
+            <td th:text="${ticketRecord.chatDepartmentId}"></td>
+            <td th:text="${ticketRecord.chatDepartmentName}"></td>
+            <td th:text="${ticketRecord.title}"></td>
+            <td th:text="${ticketRecord.content}"></td>
+            <td th:text="${ticketRecord.jobTopic}"></td>
+            <td th:text="${ticketRecord.jobTopicName}"></td>
+            <td th:text="${ticketRecord.requesterLan}"></td>
+            <td th:text="${ticketRecord.requesterUserId}"></td>
+            <td th:text="${ticketRecord.requesterUserType}"></td>
+            <td th:text="${ticketRecord.requesterUserName}"></td>
+            <td th:text="${ticketRecord.styleId}"></td>
+            <td th:text="${ticketRecord.jobType}"></td>
+            <td th:text="${ticketRecord.departmentId}"></td>
+            <td th:text="${ticketRecord.departmentName}"></td>
+            <td th:text="${ticketRecord.distributeUserId}"></td>
+            <td th:text="${ticketRecord.distributeUserName}"></td>
+            <td th:text="${ticketRecord.distributeUserRole}"></td>
+            <td th:text="${ticketRecord.distributeUserLogname}"></td>
+            <td th:text="${ticketRecord.updatorType}"></td>
+            <td th:text="${ticketRecord.updatorId}"></td>
+            <td th:text="${ticketRecord.updatorName}"></td>
+            <td th:text="${ticketRecord.jobFollowerIds}"></td>
+            <td th:text="${ticketRecord.jobFollowerNames}"></td>
+            <td th:text="${ticketRecord.priority}"></td>
+            <td th:text="${ticketRecord.jobTemplateId}"></td>
+            <td th:text="${ticketRecord.status}"></td>
+            <td th:text="${ticketRecord.replyEmail}"></td>
+            <td th:text="${ticketRecord.replyPhone}"></td>
+            <td th:text="${ticketRecord.jobMemo}"></td>
+            <td th:text="${ticketRecord.attachments}"></td>
+            <td th:text="${ticketRecord.crmId}"></td>
+            <td th:text="${ticketRecord.name}"></td>
+            <td th:text="${ticketRecord.category}"></td>
+            <td th:text="${ticketRecord.nickName}"></td>
+            <td th:text="${ticketRecord.gender}"></td>
+            <td th:text="${ticketRecord.age}"></td>
+            <td th:text="${ticketRecord.birthday}"></td>
+            <td th:text="${ticketRecord.maritalStatus}"></td>
+            <td th:text="${ticketRecord.phone}"></td>
+            <td th:text="${ticketRecord.qq}"></td>
+            <td th:text="${ticketRecord.wechat}"></td>
+            <td th:text="${ticketRecord.email}"></td>
+            <td th:text="${ticketRecord.nation}"></td>
+            <td th:text="${ticketRecord.province}"></td>
+            <td th:text="${ticketRecord.city}"></td>
+            <td th:text="${ticketRecord.address}"></td>
+            <td th:text="${ticketRecord.photo}"></td>
+            <td th:text="${ticketRecord.memo}"></td>
+            <td th:text="${ticketRecord.c1}"></td>
+            <td th:text="${ticketRecord.c2}"></td>
+            <td th:text="${ticketRecord.c3}"></td>
+            <td th:text="${ticketRecord.c4}"></td>
+            <td th:text="${ticketRecord.c5}"></td>
+            <td th:text="${ticketRecord.c6}"></td>
+            <td th:text="${ticketRecord.c7}"></td>
+            <td th:text="${ticketRecord.c8}"></td>
+            <td th:text="${ticketRecord.c9}"></td>
+            <td th:text="${ticketRecord.c10}"></td>
+            <td th:text="${ticketRecord.c11}"></td>
+            <td th:text="${ticketRecord.c12}"></td>
+            <td th:text="${ticketRecord.c13}"></td>
+            <td th:text="${ticketRecord.c14}"></td>
+            <td th:text="${ticketRecord.c15}"></td>
+            <td th:text="${ticketRecord.c16}"></td>
+            <td th:text="${ticketRecord.c17}"></td>
+            <td th:text="${ticketRecord.c18}"></td>
+            <td th:text="${ticketRecord.c19}"></td>
+            <td th:text="${ticketRecord.c20}"></td>
+            <td th:text="${ticketRecord.t1}"></td>
+            <td th:text="${ticketRecord.t2}"></td>
+            <td th:text="${ticketRecord.t3}"></td>
+            <td th:text="${ticketRecord.t4}"></td>
+            <td th:text="${ticketRecord.t5}"></td>
+            <td th:text="${ticketRecord.t6}"></td>
+            <td th:text="${ticketRecord.t7}"></td>
+            <td th:text="${ticketRecord.t8}"></td>
+            <td th:text="${ticketRecord.t9}"></td>
+            <td th:text="${ticketRecord.t10}"></td>
+            <td th:text="${ticketRecord.t11}"></td>
+            <td th:text="${ticketRecord.t12}"></td>
+            <td th:text="${ticketRecord.t13}"></td>
+            <td th:text="${ticketRecord.t14}"></td>
+            <td th:text="${ticketRecord.t15}"></td>
+            <td th:text="${ticketRecord.t16}"></td>
+            <td th:text="${ticketRecord.t17}"></td>
+            <td th:text="${ticketRecord.t18}"></td>
+            <td th:text="${ticketRecord.t19}"></td>
+            <td th:text="${ticketRecord.t20}"></td>
+            <td th:text="${ticketRecord.evaluateDatetime}"></td>
+            <td th:text="${ticketRecord.mainItem}"></td>
+            <td th:text="${ticketRecord.comment}"></td>
+            <td th:text="${ticketRecord.subItems}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

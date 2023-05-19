@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户数据</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>客户数据</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${companyId}}"> 浏览数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${companyId}}"> 工单数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${companyId}}"> 客户数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${companyId}}">点击刷新</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+<table border="1" align="center">
+    <colgroup>
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+    </colgroup>
+    <thead>
+        <tr>
+            <td>唯一ID</td>
+            <td>创建时间</td>
+            <td>创建人</td>
+            <td>更新时间</td>
+            <td>更新人</td>
+            <td>公司ID</td>
+            <td>访客ID</td>
+            <td>客户信息状态</td>
+            <td>创建数据的客服ID"</td>
+            <td>创建数据的客服账号</td>
+            <td>创建数据的客服姓名</td>
+            <td>创建数据的时间</td>
+            <td>修改数据的客服ID"</td>
+            <td>修改数据的客服账号</td>
+            <td>修改数据的客服姓名</td>
+            <td>修改数据的时间</td>
+            <td>分配数据的客服ID"</td>
+            <td>分配数据的客服账号</td>
+            <td>分配数据的客服姓名</td>
+            <td>分配数据的时间</td>
+            <td>客户类别</td>
+            <td>客户姓名</td>
+            <td>客户昵称</td>
+            <td>客户性别</td>
+            <td>客户年龄</td>
+            <td>客户生日</td>
+            <td>婚姻状况</td>
+            <td>客户电话</td>
+            <td>客户qq</td>
+            <td>客户微信</td>
+            <td>客户邮箱</td>
+            <td>客户所在国家</td>
+            <td>客户所在省份</td>
+            <td>客户所在城市</td>
+            <td>客户所在地址</td>
+            <td>客户头像地址</td>
+            <td>客户备注</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>自定义字段</td>
+            <td>数据所有者的客服ID</td>
+            <td>数据所有者的客服账号</td>
+            <td>数据所有者的客服姓名</td>
+        </tr>
+    </thead>
+    <tbody style="font-size:10px;">
+        <tr th:id="test-get" th:each="crmData : ${crmDatas}">
+            <td th:text="${crmData.id}"></td>
+            <td th:text="${crmData.createDateStr}"></td>
+            <td th:text="${crmData.createBy}"></td>
+            <td th:text="${crmData.updateDateStr}"></td>
+            <td th:text="${crmData.updateBy}"></td>
+            <td th:text="${crmData.companyId}"></td>
+            <td th:text="${crmData.visitorId}"></td>
+            <td th:text="${crmData.crmStatus}"></td>
+            <td th:text="${crmData.createStaffId}"></td>
+            <td th:text="${crmData.createStaffLogname}"></td>
+            <td th:text="${crmData.createStaffName}"></td>
+            <td th:text="${crmData.createCrmDate}"></td>
+            <td th:text="${crmData.updateStaffId}"></td>
+            <td th:text="${crmData.updateStaffLogname}"></td>
+            <td th:text="${crmData.updateStaffName}"></td>
+            <td th:text="${crmData.updateCrmDate}"></td>
+            <td th:text="${crmData.distributeStaffId}"></td>
+            <td th:text="${crmData.distributeStaffLogname}"></td>
+            <td th:text="${crmData.distributeStaffName}"></td>
+            <td th:text="${crmData.distributeCrmDate}"></td>
+            <td th:text="${crmData.category}"></td>
+            <td th:text="${crmData.name}"></td>
+            <td th:text="${crmData.nickName}"></td>
+            <td th:text="${crmData.gender}"></td>
+            <td th:text="${crmData.age}"></td>
+            <td th:text="${crmData.birthday}"></td>
+            <td th:text="${crmData.maritalStatus}"></td>
+            <td th:text="${crmData.phone}"></td>
+            <td th:text="${crmData.qq}"></td>
+            <td th:text="${crmData.wechat}"></td>
+            <td th:text="${crmData.email}"></td>
+            <td th:text="${crmData.nation}"></td>
+            <td th:text="${crmData.province}"></td>
+            <td th:text="${crmData.city}"></td>
+            <td th:text="${crmData.address}"></td>
+            <td th:text="${crmData.photo}"></td>
+            <td th:text="${crmData.memo}"></td>
+            <td th:text="${crmData.c1}"></td>
+            <td th:text="${crmData.c2}"></td>
+            <td th:text="${crmData.c3}"></td>
+            <td th:text="${crmData.c4}"></td>
+            <td th:text="${crmData.c5}"></td>
+            <td th:text="${crmData.c6}"></td>
+            <td th:text="${crmData.c7}"></td>
+            <td th:text="${crmData.c8}"></td>
+            <td th:text="${crmData.c9}"></td>
+            <td th:text="${crmData.c10}"></td>
+            <td th:text="${crmData.c11}"></td>
+            <td th:text="${crmData.c12}"></td>
+            <td th:text="${crmData.c13}"></td>
+            <td th:text="${crmData.c14}"></td>
+            <td th:text="${crmData.c15}"></td>
+            <td th:text="${crmData.c16}"></td>
+            <td th:text="${crmData.c17}"></td>
+            <td th:text="${crmData.c18}"></td>
+            <td th:text="${crmData.c19}"></td>
+            <td th:text="${crmData.c20}"></td>
+            <td th:text="${crmData.ownerId}"></td>
+            <td th:text="${crmData.ownerLogname}"></td>
+            <td th:text="${crmData.ownerName}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览数据</title>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>浏览数据</h1>
+    </div>
+    <div style="display: flex;">
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/apiLog/list?companyId='+${companyId}}"> 日志数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/companyStatus/list?companyId='+${companyId}}"> 公司状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/routeStatus/list?companyId='+${companyId}}"> 路由状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/skillStatus/list?companyId='+${companyId}}"> 接待组状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/staffStatus/list?companyId='+${companyId}}"> 客服状态 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/chatRecord/list?companyId='+${companyId}}"> 对话数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${companyId}}"> 浏览数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/ticketRecord/list?companyId='+${companyId}}"> 工单数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/echatServer/data/crmData/list?companyId='+${companyId}}"> 客户数据 </a></h3>
+        <h3 style="margin-left:10px"><a th:href="@{'/bmp/basic/thy/companyConfig/list'}"> 公司配置 </a></h3>
+    </div>
+</head>
+<body>
+<h1><a th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${companyId}}">点击刷新</a></h1>
+
+<div style="margin: 0px 0 30px 0;">
+    <label>当前公司id：</label><a th:text="${companyId} + ' - ' + ${companyName}"></a><br>
+    <div th:each="company:${companyList}">
+        <a th:text="${company.name}" th:href="@{'/bmp/echatServer/data/trackRecord/list?companyId='+${company.companyId}}"></a>
+    </div>
+</div>
+<table border="1" align="center">
+    <colgroup>
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+        <col width="90">
+    </colgroup>
+    <thead>
+        <tr>
+            <td>唯一ID</td>
+            <td>创建时间</td>
+            <td>创建人</td>
+            <td>更新时间</td>
+            <td>更新人</td>
+            <td>公司ID</td>
+            <td>开发者自定义扩展数据</td>
+            <td>访客进入时的路由状态</td>
+            <td>访客退出时的路由状态</td>
+            <td>会员唯一值</td>
+            <td>会员级别</td>
+            <td>会员类别</td>
+            <td>会员姓名</td>
+            <td>会员昵称</td>
+            <td>会员性别</td>
+            <td>会员年龄</td>
+            <td>会员生日</td>
+            <td>会员婚姻状况</td>
+            <td>会员联系电话</td>
+            <td>会员QQ</td>
+            <td>会员微信</td>
+            <td>会员邮箱</td>
+            <td>会员国家</td>
+            <td>会员省份</td>
+            <td>会员城市</td>
+            <td>会员地址</td>
+            <td>会员头像地址</td>
+            <td>会员备注信息</td>
+            <td>访客进入网站的时间</td>
+            <td>访客端的媒介</td>
+            <td>访客类型</td>
+            <td>自定义渠道的渠道ID</td>
+            <td>访客ID</td>
+            <td>访客的姓名</td>
+            <td>访客的头像地址</td>
+            <td>当前访客此次是第几次来访</td>
+            <td>访客的浏览器语言</td>
+            <td>访客的来源IP</td>
+            <td>访客的来源国家</td>
+            <td>访客的来源省份</td>
+            <td>访客的来源城市</td>
+            <td>访客的浏览器名称</td>
+            <td>访客的浏览器版本号</td>
+            <td>访客电脑的分辨率</td>
+            <td>访客电脑的操作系统</td>
+            <td>访客电脑的操作系统版本</td>
+            <td>访客来源的搜索引擎</td>
+            <td>访客来源的关键词</td>
+            <td>推广词</td>
+            <td>关键字类型</td>
+            <td>访客进入网站的来源页</td>
+            <td>进入网站的时间</td>
+            <td>访客落地页面的URL</td>
+            <td>访客落地页面的标题</td>
+            <td>访客落地页面的别名</td>
+            <td>上次对话的时间</td>
+            <td>上次对话的客服ID</td>
+            <td>上次对话的客服账号</td>
+            <td>上次对话的客服姓名</td>
+            <td>访客本次会话浏览总页面数量</td>
+            <td>访客本次会话浏览总时长</td>
+            <td>访客本次会话产生的人工对话记录ID、机器人对话记录ID、留言对话记录ID</td>
+            <td>访客本次会话点击对话，弹出信息收集框，放弃的记录ID</td>
+            <td>访客离开时间</td>
+            <td>接入对话的路由ID</td>
+            <td>路由名称</td>
+            <td>路由所使用的样式ID</td>
+            <td>路由所使用样式的名称</td>
+            <td>本次分配对话的接待组ID</td>
+            <td>本地分配对话的接待组名称</td>
+            <td>访客本次会话ID</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+            <td>会员自定义字段</td>
+        </tr>
+    </thead>
+    <tbody style="font-size:10px;">
+        <tr th:id="test-get" th:each="trackRecord : ${trackRecords}">
+            <td th:text="${trackRecord.id}"></td>
+            <td th:text="${trackRecord.createDateStr}"></td>
+            <td th:text="${trackRecord.createBy}"></td>
+            <td th:text="${trackRecord.updateDateStr}"></td>
+            <td th:text="${trackRecord.updateBy}"></td>
+            <td th:text="${trackRecord.companyId}"></td>
+            <td th:text="${trackRecord.myData}"></td>
+            <td th:text="${trackRecord.enterRouteStatus}"></td>
+            <td th:text="${trackRecord.outRouteStatus}"></td>
+            <td th:text="${trackRecord.uid}"></td>
+            <td th:text="${trackRecord.grade}"></td>
+            <td th:text="${trackRecord.category}"></td>
+            <td th:text="${trackRecord.name}"></td>
+            <td th:text="${trackRecord.nickName}"></td>
+            <td th:text="${trackRecord.gender}"></td>
+            <td th:text="${trackRecord.age}"></td>
+            <td th:text="${trackRecord.birthday}"></td>
+            <td th:text="${trackRecord.maritalStatus}"></td>
+            <td th:text="${trackRecord.phone}"></td>
+            <td th:text="${trackRecord.qq}"></td>
+            <td th:text="${trackRecord.wechat}"></td>
+            <td th:text="${trackRecord.email}"></td>
+            <td th:text="${trackRecord.nation}"></td>
+            <td th:text="${trackRecord.province}"></td>
+            <td th:text="${trackRecord.city}"></td>
+            <td th:text="${trackRecord.address}"></td>
+            <td th:text="${trackRecord.photo}"></td>
+            <td th:text="${trackRecord.memo}"></td>
+            <td th:text="${trackRecord.visitorEnterTime}"></td>
+            <td th:text="${trackRecord.visitorMedia}"></td>
+            <td th:text="${trackRecord.visitorType}"></td>
+            <td th:text="${trackRecord.mediaId}"></td>
+            <td th:text="${trackRecord.visitorId}"></td>
+            <td th:text="${trackRecord.visitorName}"></td>
+            <td th:text="${trackRecord.visitorPhoto}"></td>
+            <td th:text="${trackRecord.visitTimes}"></td>
+            <td th:text="${trackRecord.visitorLan}"></td>
+            <td th:text="${trackRecord.visitorIp}"></td>
+            <td th:text="${trackRecord.visitorCountry}"></td>
+            <td th:text="${trackRecord.visitorProvince}"></td>
+            <td th:text="${trackRecord.visitorCity}"></td>
+            <td th:text="${trackRecord.browserName}"></td>
+            <td th:text="${trackRecord.browserVersion}"></td>
+            <td th:text="${trackRecord.screenResolution}"></td>
+            <td th:text="${trackRecord.osName}"></td>
+            <td th:text="${trackRecord.osVersion}"></td>
+            <td th:text="${trackRecord.se}"></td>
+            <td th:text="${trackRecord.keyword}"></td>
+            <td th:text="${trackRecord.biddingWord}"></td>
+            <td th:text="${trackRecord.keywordType}"></td>
+            <td th:text="${trackRecord.referPage}"></td>
+            <td th:text="${trackRecord.firstTime}"></td>
+            <td th:text="${trackRecord.firstPage}"></td>
+            <td th:text="${trackRecord.firstPageTitle}"></td>
+            <td th:text="${trackRecord.firstPageAlias}"></td>
+            <td th:text="${trackRecord.lastChatTime}"></td>
+            <td th:text="${trackRecord.lastChatStaffId}"></td>
+            <td th:text="${trackRecord.lastChatStaffLogname}"></td>
+            <td th:text="${trackRecord.lastChatStaffName}"></td>
+            <td th:text="${trackRecord.visitPageCount}"></td>
+            <td th:text="${trackRecord.visitTotalTime}"></td>
+            <td th:text="${trackRecord.chatRecordId}"></td>
+            <td th:text="${trackRecord.giveupRecordId}"></td>
+            <td th:text="${trackRecord.visitorOutTime}"></td>
+            <td th:text="${trackRecord.routeId}"></td>
+            <td th:text="${trackRecord.routeName}"></td>
+            <td th:text="${trackRecord.styleId}"></td>
+            <td th:text="${trackRecord.styleName}"></td>
+            <td th:text="${trackRecord.chatDepartmentId}"></td>
+            <td th:text="${trackRecord.chatDepartmentName}"></td>
+            <td th:text="${trackRecord.trackRecordId}"></td>
+            <td th:text="${trackRecord.c1}"></td>
+            <td th:text="${trackRecord.c2}"></td>
+            <td th:text="${trackRecord.c3}"></td>
+            <td th:text="${trackRecord.c4}"></td>
+            <td th:text="${trackRecord.c5}"></td>
+            <td th:text="${trackRecord.c6}"></td>
+            <td th:text="${trackRecord.c7}"></td>
+            <td th:text="${trackRecord.c8}"></td>
+            <td th:text="${trackRecord.c9}"></td>
+            <td th:text="${trackRecord.c10}"></td>
+            <td th:text="${trackRecord.c11}"></td>
+            <td th:text="${trackRecord.c12}"></td>
+            <td th:text="${trackRecord.c13}"></td>
+            <td th:text="${trackRecord.c14}"></td>
+            <td th:text="${trackRecord.c15}"></td>
+            <td th:text="${trackRecord.c16}"></td>
+            <td th:text="${trackRecord.c17}"></td>
+            <td th:text="${trackRecord.c18}"></td>
+            <td th:text="${trackRecord.c19}"></td>
+            <td th:text="${trackRecord.c20}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
