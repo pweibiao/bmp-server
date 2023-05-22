@@ -31,6 +31,12 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <!-- 监控日志 -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+        </dependency>
+
         <!-- springboot依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

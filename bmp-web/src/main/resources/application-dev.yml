@@ -7,6 +7,10 @@ spring:
     allow-circular-references: true
   application:
     name: bmp
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:3516
   jackson:
     default-property-inclusion: non_null
     date-format: yyyy-MM-dd HH:mm:ss
@@ -80,3 +84,12 @@ jwt:
   base64-secret: meng
   # 24 小时 （ 24 * 3600 ）
   token-validity-in-seconds: 864000
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

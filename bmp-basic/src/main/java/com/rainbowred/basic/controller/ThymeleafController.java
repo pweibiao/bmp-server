@@ -2,10 +2,12 @@ package com.rainbowred.basic.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.google.common.collect.Maps;
 import com.rainbowred.basic.domain.SystemCompany;
 import com.rainbowred.basic.service.SystemCompanyCacheService;
 import com.rainbowred.basic.service.SystemCompanyService;
 import com.rainbowred.common.controller.BaseController;
+import com.rainbowred.common.util.EchatUtil;
 import com.rainbowred.common.util.StringUtil;
 import com.rainbowred.pojo.CommonResult;
 import com.rainbowred.pojo.EncryptPojo;
@@ -125,7 +127,16 @@ public class ThymeleafController extends BaseController {
      */
 
     /**
-     * Signature 加解密
+     * Signature 加解密页面
+     */
+    @GetMapping("/signature/sha1")
+    public String SHA1page(@ModelAttribute EncryptPojo pojo, Model model) {
+        model.addAttribute("encryptPojo", new EncryptPojo());
+        return "view/basic/common/SHA1";
+    }
+
+    /**
+     * Signature 加密
      */
     @PostMapping("/signature/sha1")
     public String SHA1Encoding(@ModelAttribute EncryptPojo pojo, Model model) {
@@ -143,12 +154,26 @@ public class ThymeleafController extends BaseController {
     }
 
     /**
-     * Signature 加解密
+     * AES解密
      */
-    @GetMapping("/signature/sha1")
-    public String SHA1page(@ModelAttribute EncryptPojo pojo, Model model) {
+    @GetMapping("/aes/encrypt")
+    public String aesEncryption(@ModelAttribute EncryptPojo pojo, Model model) {
         model.addAttribute("encryptPojo", new EncryptPojo());
-        return "view/basic/common/SHA1";
+        model.addAttribute("decryptCode", "");
+        return "view/basic/common/AES";
     }
+
+    /**
+     * AES解密
+     */
+    @PostMapping("/aes/encrypt")
+    public String aesEncrypt(@ModelAttribute EncryptPojo pojo, Model model) {
+        model.addAttribute("encryptPojo", new EncryptPojo());
+        model.addAttribute("decryptCode", "");
+        String plainText = EchatUtil.xmlDecoding("xml", Maps.newHashMap());
+        return "view/basic/common/AES";
+    }
+
+
 
 }

@@ -3,7 +3,10 @@ package com.rainbowred.echatServer.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rainbowred.echatServer.domain.BmpServerChatRecord;
 import com.rainbowred.echatServer.domain.BmpServerStaffStatus;
+import com.rainbowred.echatServer.domain.BmpServerTicketRecord;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author pengweibiao
@@ -14,5 +17,7 @@ import org.apache.ibatis.annotations.Param;
 public interface BmpServerChatRecordMapper extends BaseMapper<BmpServerChatRecord> {
 
     void insertOrUpdate(@Param("e") BmpServerChatRecord pojo);
+
+    List<BmpServerChatRecord> dateList(@Param("e") BmpServerTicketRecord pojo);
 
 }

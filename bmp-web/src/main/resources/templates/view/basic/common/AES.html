@@ -31,36 +31,54 @@
 
 <body>
 <div align="center" class = "main_left">
-    <div class="title">
-        <span>Signature 校验</span>
-    </div>
-
     <div class="title-msg">
-        <span>请输入</span>
+        <span>AES工具</span>
     </div>
-
-    <form class="login-form" action="#" th:action="@{/bmp/basic/thy/signature/sha1}" method="post" th:object="${encryptPojo}">
+    <form class="login-form" action="#" th:action="@{/bmp/basic/thy/aes/encrypt}" method="post" th:object="${encryptPojo}">
         <div class="input-content">
 
-             <label>时间戳（tm）:</label>
-            <input type="text" th:field="*{tm}" /><br/>
+            <label>appId:</label>
+            <input type="text" th:field="*{appId}" /><br/>
 
-             <label>随机数（nonce）:</label>
-            <input type="text" th:field="*{nonce}" /><br/>
+            <label>aesKey:</label>
+            <input type="text" th:field="*{aesKey}" /><br/>
 
-             <label>身份凭证（token）:</label>
+            <label>token:</label>
             <input type="text" th:field="*{token}" /><br/>
+
+            <label>密文:</label>
+            <input type="text" th:field="*{code}" /><br/>
         </div>
-        <a th:href="@{'/bmp/basic/thy/signature/sha1'}">清空</a>
+        <a th:href="@{'/bmp/basic/thy/aes/encrypt'}">清空</a>
         <button class = "enter-btn" type="submit">生成</button>
     </form><br>
     <h3 th:text="${encryptPojo.getMsgSignature()}"></h3>
+</div>
+<div align="center" class = "main_right">
+    <div class="title" th:text="${decryptCode}">
+    </div>
 </div>
 </body>
 
 </html>
 
 <style>
+
+    .main_right {
+        margin: 0 auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 15px;
+        width: 350px;
+        height: 350px;
+        background: #FFFFFF;
+        /*以下css用于让登录表单垂直居中在界面,可删除*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -175px;
+        margin-left: -175px;
+    }
 
     .main_left {
         margin: 0 auto;
@@ -82,6 +100,7 @@
         width: 100%;
         height: 40px;
         line-height: 40px;
+        white-space: pre-wrap;
     }
 
     .title-msg {
@@ -100,7 +119,7 @@
 
     .input-content {
         width: 100%;
-        height: 220px;
+        height: 280px;
     }
 
     .input-content input {
